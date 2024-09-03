@@ -1,0 +1,33 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 5px;
+}
+
+#header-logo-img {
+    width: 200px;
+}
+
+#header-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-button {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: ease-in 0.1s;
+}
+
+.header-button:hover {
+    transform: translateY(-3px);
+}

@@ -1,10 +1,9 @@
 body {
     padding: 0;
-    margin: 0;
     font-family: "Poppins", sans-serif;
 }
 
-header {
+#main-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -29,5 +28,13 @@ header {
 }
 
 .header-button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2.5px);
+    opacity: 80%;
+}
+
+#sub-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
 }

@@ -16,13 +16,15 @@
 </head>
 
 <body>
-    <?php include "header.php" ?>
-    <main>
-
-    </main>
-    <footer>
-
-    </footer>
+    <div id="container">
+        <?php include "header.php" ?>
+        <main>
+    
+        </main>
+        <footer>
+    
+        </footer>
+    </div>
 </body>
 
 </html>

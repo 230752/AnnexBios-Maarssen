@@ -1,17 +1,46 @@
 body {
-    padding: 0;
-    font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 5;
+}
+main {
+  grid-area: 2 / 1 / 4 / 5;
+}
+footer {
+  grid-area: 4 / 1 / 5 / 5;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #main-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #header-logo-img {
-    width: 200px;
+  width: 200px;
 }
 
 #header-buttons {
@@ -20,21 +49,51 @@ body {
 }
 
 .header-button {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    font-size: 1.1em;
-    transition: ease-in 0.1s;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 .header-button:hover {
-    transform: translateY(-2.5px);
-    opacity: 80%;
+  color: #9E2629;
 }
 
 #sub-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 30px;
+  background-color: #9E2629;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#sub-header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  color: white;
+  padding-left: 12px;
+}
+
+#sub-header-title {
+    font-size: 1rem;
+}
+
+#movie-selector {
+    border: none;
+    color: white;
+    background-color: #c8545c;
+    font-size: 1rem;
+    padding: 10px 10px;
+    appearance: none;
+}
+
+#bestel-btn {
+    text-decoration: none;
+    color: #9E2629;
+    font-size: 0.9rem;
+    padding: 7px 10px;
+    background-color: white;
 }

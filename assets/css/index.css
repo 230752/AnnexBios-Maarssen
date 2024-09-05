@@ -36,6 +36,13 @@ footer {
   flex-direction: column;
 }
 
+#welcome-txt {
+  width: 70%;
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Handle long words */
+  overflow-wrap: break-word; /* Handle long words */
+}
+
 #about-btn {
   text-decoration: none;
   background-color: white;

@@ -25,7 +25,7 @@
              <div id="intro">
                  <div id="about-box">
                      <h1>WELKOM BIJ ANNEXBIOS</h1>
-                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste a ducimus distinctio atque alias possimus beatae quod fugiat tempora odit, tempore nesciunt perferendis dignissimos voluptatibus saepe, illum inventore. Recusandae, veritatis.</p>
+                     <p id="welcome-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste a ducimus distinctio atque alias possimus beatae quod fugiat tempora odit, tempore nesciunt perferendis dignissimos voluptatibus saepe, illum inventore. Recusandae, veritatis.</p>
                      <a id="about-btn" href="film-agenda.php">BEKIJK DE DRAAIENDE FILMS</a>
                  </div>
              </div>

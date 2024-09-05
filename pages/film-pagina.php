@@ -7,6 +7,7 @@
     <title>AnnexBios Maarssen</title>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <!-- FONT LINKS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

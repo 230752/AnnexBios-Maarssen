@@ -22,9 +22,7 @@
         <main>
             <h1>content</h1>
         </main>
-        <footer>
-            <?php include "assets/php/footer.php" ?>
-        </footer>
+        <?php include "assets/php/footer.php" ?>
     </div>
 </body>
 

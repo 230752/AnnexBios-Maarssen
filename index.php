@@ -7,6 +7,7 @@
     <title>AnnexBios Maarssen</title>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <!-- FONT LINKS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,14 @@
     <div id="container">
         <?php include "assets/php/header.php" ?>
         <main>
-            <h1>content</h1>
+            <!-- Background image -->
+             <div id="intro">
+                 <div id="about-box">
+                     <h1>WELKOM BIJ ANNEXBIOS</h1>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste a ducimus distinctio atque alias possimus beatae quod fugiat tempora odit, tempore nesciunt perferendis dignissimos voluptatibus saepe, illum inventore. Recusandae, veritatis.</p>
+                     <a id="about-btn" href="film-agenda.php">BEKIJK DE DRAAIENDE FILMS</a>
+                 </div>
+             </div>
         </main>
         <?php include "assets/php/footer.php" ?>
     </div>

@@ -3,24 +3,7 @@ body {
   margin: 0;
   font-family: "Lato", sans-serif;
   font-weight: 700;
-}
-
-#container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 150px 1fr 0fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-
-header {
-  grid-area: 1 / 1 / 2 / 5;
-}
-main {
-  grid-area: 2 / 1 / 4 / 5;
-}
-footer {
-  grid-area: 4 / 1 / 5 / 5;
+  background-color: #080404;
 }
 
 header {
@@ -30,6 +13,7 @@ header {
   flex-direction: column;
   position: fixed;
   width: 100%;
+  z-index: 999;
   background-color: white;
 }
 
@@ -47,8 +31,8 @@ header {
 }
 
 #header-buttons {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .header-button {
@@ -59,11 +43,11 @@ header {
 }
 
 .header-button:hover {
-  color: #9E2629;
+  color: #9e2629;
 }
 
 #sub-header {
-  background-color: #9E2629;
+  background-color: #9e2629;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -77,26 +61,28 @@ header {
   gap: 20px;
   width: 80%;
   color: white;
-  padding-left: 12px;
+  padding-left: 25px;
 }
 
 #sub-header-title {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 #movie-selector {
-    border: none;
-    color: white;
-    background-color: #c8545c;
-    font-size: 1rem;
-    padding: 10px 10px;
-    padding-right: 100px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #c8545c;
+  font-size: 1rem;
+  padding: 10px 10px;
+  padding-right: 100px;
+  cursor: pointer;
 }
 
 #bestel-btn {
-    text-decoration: none;
-    color: #9E2629;
-    font-size: 0.9rem;
-    padding: 7px 10px;
-    background-color: white;
+  text-decoration: none;
+  color: #9e2629;
+  font-size: 0.9rem;
+  padding: 7px 10px;
+  background-color: white;
 }

@@ -2,7 +2,7 @@
     <div id="main-header">
         <div id="header-logo-container">
             <a href="index.php">
-                <img id="header-logo-img" src="assets/images/logo_hoofd.png" alt="web logo">
+                <img id="header-logo-img" src="assets/images/logos/logo_hoofd.png" alt="web logo">
             </a>
         </div>
         <div id="header-buttons">

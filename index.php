@@ -7,6 +7,7 @@
     <title>AnnexBios Maarssen</title>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <!-- FONT LINKS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,7 @@
             <h1>content</h1>
         </main>
         <footer>
-            <h1>footer</h1>
+            <?php include "assets/php/footer.php" ?>
         </footer>
     </div>
 </body>

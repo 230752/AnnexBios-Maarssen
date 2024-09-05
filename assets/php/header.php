@@ -6,9 +6,9 @@
             </a>
         </div>
         <div id="header-buttons">
-            <a class="header-button" href="film-agenda.php">FILM AGENDA</a>
-            <a class="header-button" href="vestigingen.php">ALLE VESTIGINGEN</a>
-            <a class="header-button" href="contact.php">CONTACT</a>
+            <a class="header-button" href="film-agenda">FILM AGENDA</a>
+            <a class="header-button" href="vestigingen">ALLE VESTIGINGEN</a>
+            <a class="header-button" href="contact">CONTACT</a>
         </div>
     </div>
     <div id="sub-header">
@@ -18,7 +18,7 @@
                 <option value="">Kies je film</option>
                 <option value="">Shrek 4</option>
             </select>
-            <a id="bestel-btn" href="bestel-pagina.php">BESTEL TICKETS</a>
+            <a id="bestel-btn" href="bestel-pagina">BESTEL TICKETS</a>
         </div>
     </div>
 </header>

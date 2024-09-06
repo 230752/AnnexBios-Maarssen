@@ -1,5 +1,6 @@
 <?php
-$pagePath = (include_once 'assets/modules/funcs/getRedirectPagePath.php')("pages/");
+$getRedirectPagePath = require_once('assets/modules/funcs/getRedirectPagePath.php');
+$pagePath = $getRedirectPagePath("pages/");
 
 include_once $pagePath;
 ?>

@@ -7,6 +7,8 @@ footer {
 
 .footer-container {
   display: flex;
+  height: 320px;
+  z-index: 2;
 }
 
 #textfooter {
@@ -114,4 +116,6 @@ footer {
 #logo2 {
   height: 320px;
   width: 320px;
+  position: absolute;
+  right: 0;
 }

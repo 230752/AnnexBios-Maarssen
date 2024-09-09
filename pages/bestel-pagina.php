@@ -27,7 +27,7 @@
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
-            <form class="main-form" action="./" method="post">
+            <form class="form-container" action="./" method="post">
                     <div class="form-selections">
                         <select name="filmSelection" class="form-selection">
                             <option selected hidden>KIES FILM</option>
@@ -51,6 +51,7 @@
 
                     <div class="form-splitter">
                         <div class="form-split-left">
+                            <!-- STAP 1 -->
                             <h1 class="global-primary form-left-fix">
                                 STAP 1: KIES JE TICKET
                             </h1>
@@ -62,6 +63,7 @@
                                 </div>
                             </div>
 
+                            <!-- STAP 2 -->
                             <h1 class="global-primary form-left-fix">
                                 STAP 2: KIES JE STOEL
                             </h1>
@@ -74,6 +76,40 @@
                             </div>
 
                             <!-- TODO: PUT IN YOUR SEATS CONTAINER HERE -->
+
+                            <!-- STAP 3 -->
+                            <h1 class="global-primary form-left-fix">
+                                STAP 3: CONTROLEER JE BESTELLING
+                            </h1>
+
+                            <div class="form-preview-container">
+                                <img src="assets/films/deadpool.jpg" alt="" class="form-preview-img">
+
+                                <div class="form-preview-sub">
+                                    <h1 class="global-secondary">DEADPOOL</h1>
+
+                                    <div>
+                                        <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
+                                        <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
+                                        <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
+                                    </div>
+
+                                    <div>
+                                        <p class="global-secondary">Bioscoop: INSERT HERE</p>
+                                        <p class="global-secondary">Wanneer: INSERT HERE</p>
+                                        <p class="global-secondary">Soelen: Rij 2, stoel 7</p>
+                                        <p class="global-secondary">Tickets: 1x normaal</p>
+                                        <br>
+                                        <p class="global-secondary">Bioscoop: INSERT HERE</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STAP 4 -->
+                            <h1 class="global-primary form-left-fix">
+                                STAP 4: VUL JE GEGEVENS IN
+                            </h1>
+
                         </div>
                         <div class="form-split-right">
                         </div>

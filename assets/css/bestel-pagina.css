@@ -1,9 +1,11 @@
 :root {
     --primary-color: #9e2629;
+    --secondary-color: #666767;
     --background-color: #FFFFFF;
 
     --main-header-offset: 150px;
     --form-splitter-offset: 10px;
+    --form-preview-offset: 10px;
 }
 
 #container {
@@ -16,6 +18,10 @@
 
 .global-primary {
     color: var(--primary-color)
+}
+
+.global-secondary {
+    color: var(--secondary-color)
 }
 
 .global-line {
@@ -61,10 +67,16 @@ main {
     font-size: 70px;
 }
 
-/* FORM CLASSES */
+/* 
+    FORM CLASSES
+*/
+
+/* .form-container {
+    
+} */
 
 .form-line {
-    width: calc(100% - 70px);
+    width: calc(60%);
 }
 
 .form-selections {
@@ -79,9 +91,9 @@ main {
     background-color: var(--background-color);
     color: var(--primary-color);
 
-    font-size: 17px;
+    font-size: 20px;
 
-    padding: 6px 25px 6px 25px;
+    padding: 8px 30px 8px 30px;
     border: none;
 }
 
@@ -101,10 +113,11 @@ main {
 /* TODO: Change split classes's height to auto when fully done */
 .form-split-left {
     width: 100%;
-    height: 1000px;
+    height: auto;
 
     padding-left: 50px;
     padding-right: 50px;
+    padding-bottom: 50px;
 
     background-color: var(--background-color);
 }
@@ -114,4 +127,25 @@ main {
     height: 500px; 
 
     background-color: var(--background-color);
+}
+
+.form-preview-container {
+    width: calc(100% - var(--form-preview-offset)*2);
+    height: 400px;
+    padding: var(--form-preview-offset);
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    border: solid 3px var(--primary-color);
+}
+
+.form-preview-img {
+    height: 100%;
+}
+
+.form-preview-sub-img {
+    width: 50px;
+    width: 50px;
 }

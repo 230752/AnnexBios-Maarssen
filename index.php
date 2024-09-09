@@ -3,4 +3,3 @@ $getRedirectPagePath = require_once('assets/modules/funcs/getRedirectPagePath.ph
 $pagePath = $getRedirectPagePath("pages/");
 
 include_once $pagePath;
-?>

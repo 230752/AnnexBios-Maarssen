@@ -5,5 +5,4 @@ return function($string) {
     return  htmlspecialchars(
         htmlentities($string)
     );
-}
-?>
+};

@@ -1,3 +1,30 @@
+<?php
+include 'database/db_connect.php';
+
+if (isset($_GET['id'])) {
+    $movie_id = $_GET['id'];
+
+    $sql = "
+    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip
+    FROM movies m
+    JOIN movieagenda ma ON m.id = ma.movie_id
+    WHERE m.id = ?
+";
+}
+
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param('i', $movie_id);
+
+        $stmt->execute();
+
+        $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
+        $stmt->fetch();
+        $stmt->close();
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,41 +33,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnexBios Maarssen</title>
     <!-- CSS LINKS -->
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/footer.css">
->>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1
     <link rel="stylesheet" href="assets/css/bestel-pagina.css">
     <!-- FONT LINKS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-<<<<<<< HEAD
-        rel="stylesheet">
-        <?php include "assets/php/header.php" ?>
-=======
         rel="stylesheet"
     >
->>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1
 </head>
 
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
         <main>
-<<<<<<< HEAD
-            <div class="seats">
-            <h1>content</h1>
-            <?php include "assets/php/bestel-seats.php" ?>
-            </div>
-        </main>
-        <footer>
-            <h1>Footer</h1>
-        </footer>
-=======
             <div class="main-header-container">
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
@@ -49,20 +58,20 @@
             <form class="form-container" action="" method="post">
                     <div class="form-selections">
                         <div class="form-selection">
-                            [INSERT MOVIE NAME HERE]
+                        <?php echo htmlspecialchars($movie);?>
                         </div>
                         <!-- 
                             Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
                         -->
                         <select name="date" class="form-selection" required>
                             <option selected disabled hidden>DATUM</option>
-                            <option value="1">1</option>
+                            <option value="1"><?php echo htmlspecialchars($agenda_startdate); ?></option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                         <select name="timeStamp" class="form-selection" required>
                             <option selected disabled hidden>TIJDSTIP</option>
-                            <option value="1">1</option>
+                            <option value="1"><?php echo htmlspecialchars($tijdstip); ?></option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
@@ -180,10 +189,10 @@
                             </h1>
 
                             <div class="form-preview-container">
-                                <img src="assets/films/deadpool.jpg" alt="" class="form-preview-img">
-
+                            <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
                                 <div class="form-preview-sub">
-                                    <h1 class="global-secondary">DEADPOOL</h1>
+                                    <h1 class="global-secondary"><?php echo htmlspecialchars($movie);?>
+                                    </h1>
 
                                     <div>
                                         <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
@@ -192,12 +201,12 @@
                                     </div>
 
                                     <div>
-                                        <p class="global-secondary">Bioscoop: INSERT HERE</p>
-                                        <p class="global-secondary">Wanneer: INSERT HERE</p>
-                                        <p class="global-secondary">Soelen: Rij 2, stoel 7</p>
+                                        <p class="global-secondary">Bioscoop: AnnexBios-Maarsen</p>
+                                        <p class="global-secondary">Wanneer: <?php echo htmlspecialchars($agenda_startdate); ?></p>
+                                        <p class="global-secondary">Stoelen: Rij 2, stoel 7</p>
                                         <p class="global-secondary">Tickets: 1x normaal</p>
                                         <br>
-                                        <p class="global-secondary">Bioscoop: INSERT HERE</p>
+                                        <p class="global-secondary">Bioscoop: AnnexBios</p>
                                     </div>
                                 </div>
                             </div>
@@ -218,8 +227,9 @@
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>
->>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1
     </div>
 </body>
 
 </html>
+
+<?php $stmt->close(); ?>

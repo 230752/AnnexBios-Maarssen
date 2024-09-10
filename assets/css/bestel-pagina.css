@@ -17,16 +17,27 @@
 }
 
 .global-primary {
-    color: var(--primary-color)
+    color: var(--primary-color);
+}
+
+.global-background-primary {
+    background-color: var(--primary-color);
 }
 
 .global-secondary {
-    color: var(--secondary-color)
+    color: var(--secondary-color);
+}
+
+.global-background-secondary {
+    background-color: var(--secondary-color);
 }
 
 .global-line {
-    background-color: #9e2629;
     height: 7px;
+}
+
+.global-thinner-line {
+    height: 2px;
 }
 
 .global-center {
@@ -68,12 +79,8 @@ main {
 }
 
 /* 
-    FORM CLASSES
+    GLOBAL FORM CLASSES
 */
-
-/* .form-container {
-    
-} */
 
 .form-line {
     width: calc(60%);
@@ -129,6 +136,9 @@ main {
     background-color: var(--background-color);
 }
 
+/* 
+    PREVIEW FORM CLASSES
+*/
 .form-preview-container {
     width: calc(100% - var(--form-preview-offset)*2);
     height: 400px;
@@ -148,4 +158,38 @@ main {
 .form-preview-sub-img {
     width: 50px;
     width: 50px;
+}
+
+/* 
+    TICKETS FORM CLASSES
+*/
+.form-tickets-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1fr, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+.form-tickets-content *:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2
+}
+.form-tickets-content *:nth-child(2) {
+    text-align: right;
+    grid-area: 1 / 3 / 2 / 4
+}
+.form-tickets-content *:nth-child(3) {
+    text-align: right;
+    grid-area: 1 / 4 / 2 / 5
+}
+.form-tickets-p {
+    font-size: 20px;
+}
+.form-tickets-selection {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+
+    font-size: 20px;
+
+    padding: 8px 30px 8px 30px;
+    border: none;
 }

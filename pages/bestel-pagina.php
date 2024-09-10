@@ -27,14 +27,12 @@
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
-            <form class="form-container" action="./" method="post">
+            
+            <form class="form-container" action="" method="post">
                     <div class="form-selections">
-                        <select name="filmSelection" class="form-selection">
-                            <option selected hidden>KIES FILM</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                        <div class="form-selection">
+                            [INSERT MOVIE NAME HERE]
+                        </div>
                         <select name="dateSelection" class="form-selection">
                             <option selected hidden>DATUM</option>
                             <option value="1">1</option>
@@ -58,9 +56,71 @@
 
                             <!-- TODO: Make this you dummy -->
                             <div class="form-tickets-container">
-                                <div class="form-tickets-category">
-
+                                <div class="form-tickets-content">
+                                    <p class="form-tickets-p global-secondary">
+                                        TYPE
+                                    </p>
+                                    <p class="form-tickets-p global-secondary">
+                                        PRIJS
+                                    </p>
+                                    <p class="form-tickets-p global-secondary">
+                                        AANTAL
+                                    </p>
                                 </div>
+
+                                <div class="global-thinner-line global-background-secondary"></div>
+
+                                <?php
+                                $types = [
+                                    array(
+                                        "name" => "ticketNormaal",
+                                        "type" => "Normaal",
+                                        "price" => "9,00"
+                                    ),
+                                    array(
+                                        "name" => "ticketKind",
+                                        "type" => "Kind t/m 11 jaar",
+                                        "price" => "5,00"
+                                    ),
+                                    array(
+                                        "name" => "ticketOld",
+                                        "type" => "65 +",
+                                        "price" => "7,00"
+                                    )
+                                ];
+                                
+                                foreach ($types as $typeTbl) {
+                                    $name = $typeTbl["name"];
+                                    $type = $typeTbl["type"];
+                                    $price = $typeTbl["price"]
+                                    
+                                    ?>
+
+                                    <div class="form-tickets-content">
+                                        <!-- TYPE -->
+                                        <p class="form-tickets-p global-secondary">
+                                            <?= $type ?>
+                                        </p>
+
+                                        <!-- PRIJS -->
+                                        <p class="form-tickets-p global-secondary">
+                                            &euro;<?= $price ?>
+                                        </p>
+
+                                        <!-- AANTAL -->
+                                        <select name="tickets[<?= $name ?>]" class="form-tickets-selection">
+                                            <option selected value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+
+                                    <?php
+                                };
+                                ?>
+
+                                <div class="global-thinner-line global-background-secondary"></div>
                             </div>
 
                             <!-- STAP 2 -->
@@ -69,7 +129,7 @@
                             </h1>
 
                             <div class="global-center">
-                                <div class="global-line form-line"></div>
+                                <div class="global-line global-background-primary form-line"></div>
                                 <h1 class="global-primary form-left-fix">
                                     FILMDOEK
                                 </h1>
@@ -114,6 +174,10 @@
                         <div class="form-split-right">
                         </div>
                     </div>
+
+                    <button>
+                        
+                    </button>
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>

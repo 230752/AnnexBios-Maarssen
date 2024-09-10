@@ -15,6 +15,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
+    <!-- ICON LINKS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -22,13 +25,130 @@
         <?php include "assets/php/header.php" ?>
         <main>
             <!-- Background image -->
-             <div id="intro">
-                 <div id="about-box">
-                     <h1>WELKOM BIJ ANNEXBIOS</h1>
-                     <p id="welcome-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste a ducimus distinctio atque alias possimus beatae quod fugiat tempora odit, tempore nesciunt perferendis dignissimos voluptatibus saepe, illum inventore. Recusandae, veritatis.</p>
-                     <a id="about-btn" href="film-agenda">BEKIJK DE DRAAIENDE FILMS</a>
-                 </div>
-             </div>
+            <div id="intro">
+                <div id="about-box">
+                    <h1>WELKOM BIJ ANNEXBIOS</h1>
+                    <p id="welcome-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste a ducimus
+                        distinctio atque alias possimus beatae quod fugiat tempora odit, tempore nesciunt perferendis
+                        dignissimos voluptatibus saepe, illum inventore. Recusandae, veritatis.</p>
+                    <a id="about-btn" href="film-agenda">BEKIJK DE DRAAIENDE FILMS</a>
+                </div>
+                <div id="about-box-2">
+                    <div id="abt-box2-1">
+                        <div id="abt-box2-text">
+                            <div id="abt-box2-loc">
+                                <i class="material-icons" style="font-size:36px">place</i>
+                                <p>Rijksstraatweg 42 <br> 3223 KA Hellevoetsluis</p>
+                            </div>
+                            <div id="abt-box2-num">
+                                <i class="fa fa-phone" style="font-size:32px"></i>
+                                <p>020-12345678</p>
+                            </div>
+                            <p style="font-size: 1.2rem">Bereikbaarheid</p>
+                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga error recusandae aliquam
+                                rem vel ullam quidem ducimus accusamus. Vero facere, id dolores alias aut eaque ipsam
+                                provident quas quod obcaecati.</P>
+                        </div>
+                    </div>
+                    <div id="abt-box2-2">
+                        <img id="cinema-img" src="assets/images/backgrounds/ugly-cinema.png" alt="bruh">
+                    </div>
+                </div>
+            </div>
+            <div id="movie-roster-container">
+                <div id="movie-roster">
+                    <div id="movie-roster-title">
+                        <h1>FILM AGENDA</h1>
+                    </div>
+                    <div id="filter-container">
+                        <p style="color: white">icon</p>
+                        <div class="filter-checkbox-container">
+                            <input class="filter-checkbox" type="radio">
+                            <p>FILMS</p>
+                        </div>
+                        <div class="filter-checkbox-container">
+                            <input class="filter-checkbox" type="radio">
+                            <P>DEZE WEEK</P>
+                        </div>
+                        <div class="filter-checkbox-container">
+                            <input class="filter-checkbox" type="radio">
+                            <p>VANDAAG</p>
+                        </div>
+                        <div class="filter-checkbox-container">
+                            <input class="filter-checkbox" type="radio">
+                            <select name="" id="filter-selector">
+                                <option value="">CATEGORIE</option>
+                                <option value="">ACTION</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="movie-box-container">
+                        <div class="movie-box">
+                            <img class="movie-box-img" src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                        <div class="movie-box">
+                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                        <div class="movie-box">
+                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                        <div class="movie-box">
+                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                        <div class="movie-box">
+                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                        <div class="movie-box">
+                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                        <div class="movie-box">
+                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
+                            <div class="movie-box-info">
+                                <h2>Test Title</h2>
+                                <p>Release: blah-blah-blah</p>
+                                <p>Beschrijving blah-blah-blah</p>
+                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <?php include "assets/php/footer.php" ?>
     </div>

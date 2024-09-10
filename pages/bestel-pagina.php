@@ -33,14 +33,17 @@
                         <div class="form-selection">
                             [INSERT MOVIE NAME HERE]
                         </div>
-                        <select name="dateSelection" class="form-selection">
-                            <option selected hidden>DATUM</option>
+                        <!-- 
+                            Check if date and timeStamp exist, if it doesn't it means they didn't fill it!!
+                        -->
+                        <select name="date" class="form-selection" required>
+                            <option selected disabled hidden>DATUM</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                        <select name="timeStamp" class="form-selection">
-                            <option selected hidden>TIJDSTIP</option>
+                        <select name="timeStamp" class="form-selection" required>
+                            <option selected disabled hidden>TIJDSTIP</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -49,12 +52,19 @@
 
                     <div class="form-splitter">
                         <div class="form-split-left">
+                            <?php
+                            function prettyDump($string) {
+                                echo "<pre>";
+                                var_dump($string);
+                                echo "</pre>";
+                            }
+                            prettyDump($_POST)
+                            ?>
                             <!-- STAP 1 -->
                             <h1 class="global-primary form-left-fix">
                                 STAP 1: KIES JE TICKET
                             </h1>
 
-                            <!-- TODO: Make this you dummy -->
                             <div class="form-tickets-container">
                                 <div class="form-tickets-content">
                                     <p class="form-tickets-p global-secondary">
@@ -121,6 +131,8 @@
                                 ?>
 
                                 <div class="global-thinner-line global-background-secondary"></div>
+
+                                div
                             </div>
 
                             <!-- STAP 2 -->

@@ -6,23 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnexBios Maarssen</title>
     <!-- CSS LINKS -->
+<<<<<<< HEAD
+=======
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+>>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1
     <link rel="stylesheet" href="assets/css/bestel-pagina.css">
     <!-- FONT LINKS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+<<<<<<< HEAD
+        rel="stylesheet">
+        <?php include "assets/php/header.php" ?>
+=======
         rel="stylesheet"
     >
+>>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1
 </head>
 
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
         <main>
+<<<<<<< HEAD
+            <div class="seats">
+            <h1>content</h1>
+            <?php include "assets/php/bestel-seats.php" ?>
+            </div>
+        </main>
+        <footer>
+            <h1>Footer</h1>
+        </footer>
+=======
             <div class="main-header-container">
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
@@ -214,6 +232,7 @@
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>
+>>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1
     </div>
 </body>
 

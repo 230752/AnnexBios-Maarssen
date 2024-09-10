@@ -15,7 +15,6 @@ echo "Connected successfully<br>";
 
 // Fetching and Displaying data from database (test)
 // Can be deleted after testing
-
 // SQL query to fetch data from the movieagenda table
 $query = "SELECT * FROM movieagenda";
 $result = $conn->query($query);

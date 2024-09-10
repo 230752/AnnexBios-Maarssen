@@ -34,7 +34,7 @@
                             [INSERT MOVIE NAME HERE]
                         </div>
                         <!-- 
-                            Check if date and timeStamp exist, if it doesn't it means they didn't fill it!!
+                            Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
                         -->
                         <select name="date" class="form-selection" required>
                             <option selected disabled hidden>DATUM</option>
@@ -132,7 +132,14 @@
 
                                 <div class="global-thinner-line global-background-secondary"></div>
 
-                                div
+                                <div class="global-center form-tickets-voucher-container">
+                                    <p class="form-tickets-p global-secondary">
+                                        VOUCHERCODE
+                                    </p>
+                                    <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary" placeholder="Code">
+                                    <!-- TODO: Add onclick function when api is done :thumb: -->
+                                    <input type="button" value="TOEVOEGEN" onclick="" class="global-btn form-tickets-voucher-btn">  
+                                </div>
                             </div>
 
                             <!-- STAP 2 -->

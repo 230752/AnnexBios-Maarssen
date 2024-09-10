@@ -84,7 +84,7 @@ main {
 .main-header-title {
   margin-left: 30px;
   color: var(--primary-color);
-  font-size: 70px;
+  font-size: var(--big-font);
 }
 
 /* 
@@ -107,7 +107,7 @@ main {
   background-color: var(--background-color);
   color: var(--primary-color);
 
-  font-size: 20px;
+  font-size: var(--medium-font);
 
   padding: 8px 30px 8px 30px;
   border: none;
@@ -158,11 +158,9 @@ main {
 
   border: solid 3px var(--primary-color);
 }
-
 .form-preview-img {
   height: 100%;
 }
-
 .form-preview-sub-img {
   width: 50px;
   width: 50px;
@@ -190,13 +188,13 @@ main {
   grid-area: 1 / 4 / 2 / 5;
 }
 .form-tickets-p {
-  font-size: 20px;
+  font-size: var(--medium-font);
 }
 .form-tickets-selection {
   background-color: var(--background-color);
   color: var(--secondary-color);
 
-  font-size: 20px;
+  font-size: var(--medium-font);
 
   padding: 8px 30px 8px 30px;
   border: none;
@@ -210,7 +208,7 @@ main {
 .form-tickets-voucher-text {
   border: 1px solid var(--primary-color);
 
-  font-size: 12px;
+  font-size: var(--mediumhalf-font);
   font-weight: bold;
 
   height: 30px;

@@ -119,3 +119,16 @@ footer {
   position: absolute;
   right: 0;
 }
+
+
+
+@media only screen and (max-device-width : 820px) {
+  .footer-container {
+    padding-bottom: 85px;
+    flex-direction: column;
+    height: auto;
+  }
+  #logo2 {
+    display: none;
+  }
+}

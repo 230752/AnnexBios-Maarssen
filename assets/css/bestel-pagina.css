@@ -3,9 +3,12 @@
   --secondary-color: #666767;
   --background-color: #ffffff;
 
-  --main-header-offset: 150px;
+  --main-header-offset: 5vw;
   --form-splitter-offset: 10px;
   --form-preview-offset: 10px;
+
+  --big-font: 70px;
+  --medium-font: 20px;
 }
 
 #container {
@@ -61,9 +64,11 @@ main {
   /* width: calc(100% - var(--main-header-offset*2)); */
   /* height: 1500px; */
 
-  margin: var(--main-header-offset);
+  /* margin: ;
   margin-top: 130px;
-  margin-bottom: 130px;
+  margin-bottom: 130px; */
+
+  border: var(--main-header-offset) solid black;
 
   display: flex;
   flex-direction: column;
@@ -129,10 +134,14 @@ main {
 .form-split-left {
   width: 100%;
   height: auto;
-
+  
+  /* 
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 50px;
+  */
+
+  border: 20px solid var(--background-color);
 
   background-color: var(--background-color);
 }
@@ -219,4 +228,54 @@ main {
   width: 400px;
   height: 45px;
 }
-/* >>>>>>> 5d71fd825198703efe0cac742abad6a787b29ef1 */
+
+.filmdoek {
+  flex-direction: column;
+}
+
+.form-step {
+  margin-top: 60px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .form-split-right {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .main-header-title {
+    font-size: 40px;
+  }
+
+  .form-selections {
+    flex-direction: column;
+  }
+
+  .form-preview-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-preview-img {
+    display: none;
+  }
+
+  .form-tickets-voucher-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .form-tickets-voucher-btn {
+    width: 200px;
+  }
+  .form-tickets-voucher-text {
+    width: 300px;
+  }
+
+  .form-info-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}

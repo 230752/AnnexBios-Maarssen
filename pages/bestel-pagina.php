@@ -1,6 +1,8 @@
 <?php
 include 'database/db_connect.php';
 
+$sql = null;
+
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
@@ -9,21 +11,19 @@ if (isset($_GET['id'])) {
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
-";
+    ";
 }
 
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param('i', $movie_id);
+if ($sql && $stmt = $conn->prepare($sql)) {
+    $stmt->bind_param('i', $movie_id);
 
-        $stmt->execute();
+    $stmt->execute();
 
-        $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
-        $stmt->fetch();
-        $stmt->close();
-    }
+    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
+    $stmt->fetch();
+    $stmt->close();
+}
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +32,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnexBios Maarssen</title>
+    <script src="assets/js/bestel-pagina/couponHandling.js"></script>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -49,7 +50,20 @@ if (isset($_GET['id'])) {
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
+
+        
+
         <main>
+        <?php
+        if (!$sql) {
+            ?>
+            <h1 style="color:white;">
+                Deze film bestaat niet meer!
+            </h1>
+            <?php
+            exit();
+        }
+        ?>
             <div class="main-header-container">
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>

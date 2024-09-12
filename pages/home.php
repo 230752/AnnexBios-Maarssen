@@ -63,19 +63,19 @@
                     <div id="filter-container">
                         <p style="color: white">icon</p>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <p>FILMS</p>
                         </div>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <P>DEZE WEEK</P>
                         </div>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <p>VANDAAG</p>
                         </div>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <select name="" id="filter-selector">
                                 <option value="">CATEGORIE</option>
                                 <option value="">ACTION</option>
@@ -147,6 +147,7 @@
                             </div>
                         </div>
                     </div>
+                    <a id="more-movies-btn" href="">BEKIJK ALLE FILMS</a>
                 </div>
             </div>
         </main>

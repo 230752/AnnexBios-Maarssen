@@ -106,7 +106,7 @@ $stmt->close();
 
                             <!-- STAP 2 -->
                             <h1 class="global-primary form-left-fix form-step">
-                                STAP 2: KIES JE STOEL
+                                STAP 2: KIES JE TICKET
                             </h1>
                             <div class="form-tickets-container form-global-margin">
                                 <div class="form-tickets-content">

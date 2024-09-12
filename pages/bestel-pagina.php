@@ -35,7 +35,7 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnexBios Maarssen</title>
     <!-- SCRIPT LINKS -->
-    <script src="assets/js/bestel-pagina/seatsHandler.js"></script>
+    <script src="assets/js/bestel-pagina/seatsHandler.js" defer></script>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -93,45 +93,37 @@ $stmt->close();
                             ?>
                             <!-- STAP 1 -->
                             <h1 class="global-primary form-left-fix form-step">
-                                STAP 1: KIES JE TICKET
-                            </h1>
+                                STAP 1: KIES JE STOEL
+    
+                            </h1>        
+                            <div class="global-center filmdoek">
+                                <div class="global-line global-background-primary form-line"></div>
+                                <h1 class="global-primary form-left-fix">
+                                    FILMDOEK
+                                </h1>
+                            </div>
+                            <?php include "assets/php/bestel-seats.php" ?>
 
+                            <!-- STAP 2 -->
+                            <h1 class="global-primary form-left-fix form-step">
+                                STAP 2: KIES JE STOEL
+                            </h1>
                             <div class="form-tickets-container form-global-margin">
                                 <div class="form-tickets-content">
                                     <p class="form-tickets-p global-secondary">
-                                        TYPE
+                                        STOEL
                                     </p>
                                     <p class="form-tickets-p global-secondary">
                                         PRIJS
                                     </p>
                                     <p class="form-tickets-p global-secondary">
-                                        SELECT
+                                        TYPE
                                     </p>
                                 </div>
 
                                 <div class="global-thinner-line global-background-secondary"></div>
 
                                 <div id="tickets-container">
-                                    <div class="form-tickets-content">
-                                        <!-- TYPE -->
-                                        <p id="type" class="form-tickets-p global-secondary">
-                                            TYPE
-                                        </p>
-
-                                        <!-- PRIJS -->
-                                        <p id="price" class="form-tickets-p global-secondary">
-                                            PRICE
-                                        </p>
-
-                                        <!-- AANTAL -->
-                                        <select class="form-tickets-selection" onchange="updateTicket(this)">
-                                            <option selected value="0">Normaal</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                        </select>
-
-                                        <input type="hidden" id="value" name="tickets[]" value="[]">
-                                    </div>
                                 </div>
 
                                 <div class="global-thinner-line global-background-secondary"></div>
@@ -145,25 +137,11 @@ $stmt->close();
                                     <input type="button" value="TOEVOEGEN" onclick="" class="global-btn form-tickets-voucher-btn">  
                                 </div>
                             </div>
-
-                            <!-- STAP 2 -->
-                            <h1 class="global-primary form-left-fix form-step">
-                                STAP 2: KIES JE STOEL
-                                <?php include "assets/php/bestel-seats.php" ?>
-                            </h1>
-
-                            <div class="global-center filmdoek">
-                                <div class="global-line global-background-primary form-line"></div>
-                                <h1 class="global-primary form-left-fix">
-                                    FILMDOEK
-                                </h1>
-                            </div>
-
+                            
                             <!-- STAP 3 -->
                             <h1 class="global-primary form-left-fix form-step">
                                 STAP 3: CONTROLEER JE BESTELLING
                             </h1>
-
                             <div class="form-preview-container">
                             <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
                                 <div class="form-preview-sub">

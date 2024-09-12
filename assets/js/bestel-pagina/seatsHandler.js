@@ -1,5 +1,40 @@
-let seatsData = {
+let ticketContainer = document.getElementById("tickets-container")
 
+let seatsData = {}
+
+let tickets;
+
+function refreshTickets() {
+    let html = ""
+    
+    for (let [index, tbl] of Object.entries(seatsData)) {
+        if (!tbl.toggle) continue
+
+        console.log(`Refresh ${tbl.seat}: ${tbl.toggle}`)
+
+        const seatDecode = JSON.parse(tbl.seat)
+
+        html += 
+        `<div class="form-tickets-content">
+            <p id="type" class="form-tickets-p global-secondary">
+                Rij ${seatDecode[0]}, Stoel ${seatDecode[1]}
+            </p>
+
+            <p id="price" class="form-tickets-p global-secondary">
+                &euro;9,00
+            </p>
+
+            <select class="form-tickets-selection" onchange="updateTicket(this)">
+                <option selected value="0">Normaal</option>
+                <option value="1">Kind t/m 11 jaar</option>
+                <option value="2">65 +</option>
+            </select>
+
+            <input type="hidden" id="value" name="tickets[]" value='{"seat": "${tbl.seat}", "ticketType": "0"}'>
+        </div>`   
+    }
+
+    ticketContainer.innerHTML = html
 }
 
 function onSeatClick(element) {
@@ -8,13 +43,40 @@ function onSeatClick(element) {
     seatsData[elementId] = seatsData[elementId] ? seatsData[elementId] : {
         img: element.firstElementChild,
         toggle: false,
+        seat: element.id,
     }
+
+    const targetToggle = !seatsData[elementId].toggle
     
-    seatsData[elementId].toggle = !seatsData[elementId].toggle
-    seatsData[elementId].img.style.filter = seatsData[elementId].toggle ? "brightness(50%)" : "brightness(100%)"
+    seatsData[elementId].toggle = targetToggle
+    seatsData[elementId].img.style.filter = targetToggle ? "brightness(50%)" : "brightness(100%)"
+
+    refreshTickets()
 }
 
 function updateTicket(element) {
-    const selected = element.value
-    console.log(selected)
+    const parentElement = element.parentElement
+    const priceElement = parentElement.children[1]
+    const dataElement = parentElement.children[3]
+    
+    const ticketIndex = element.value
+    const ticketPrice = tickets[ticketIndex].price
+    const dataDecode = JSON.parse(dataElement.value)
+
+    dataDecode.ticketType = ticketIndex
+
+    console.log(dataDecode)
+
+    priceElement.innerHTML = `&euro;${ticketPrice}`
+    dataElement.value = JSON.stringify(dataDecode)
 }
+
+async function init() {
+    tickets = await fetch('assets/json/ticketsTypes.json')
+        .then(response => response.json())
+        .then(response => {
+            return response
+        })
+}
+
+init()

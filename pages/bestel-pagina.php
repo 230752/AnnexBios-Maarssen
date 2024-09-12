@@ -1,8 +1,6 @@
 <?php
 include 'database/db_connect.php';
 
-$sql = null;
-
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
@@ -11,19 +9,23 @@ if (isset($_GET['id'])) {
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
-    ";
+";
 }
 
-if ($sql && $stmt = $conn->prepare($sql)) {
+if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $movie_id);
 
     $stmt->execute();
 
     $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
     $stmt->fetch();
-    $stmt->close();
 }
+
+$stmt->close();
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,6 @@ if ($sql && $stmt = $conn->prepare($sql)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnexBios Maarssen</title>
-    <script src="assets/js/bestel-pagina/couponHandling.js"></script>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -50,20 +51,7 @@ if ($sql && $stmt = $conn->prepare($sql)) {
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
-
-        
-
         <main>
-        <?php
-        if (!$sql) {
-            ?>
-            <h1 style="color:white;">
-                Deze film bestaat niet meer!
-            </h1>
-            <?php
-            exit();
-        }
-        ?>
             <div class="main-header-container">
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
@@ -164,6 +152,13 @@ if ($sql && $stmt = $conn->prepare($sql)) {
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
                                         </select>
                                     </div>
 
@@ -195,8 +190,6 @@ if ($sql && $stmt = $conn->prepare($sql)) {
                                     FILMDOEK
                                 </h1>
                             </div>
-
-                            <!-- TODO: PUT IN YOUR SEATS CONTAINER HERE -->
 
                             <!-- STAP 3 -->
                             <h1 class="global-primary form-left-fix form-step">
@@ -249,16 +242,11 @@ if ($sql && $stmt = $conn->prepare($sql)) {
                         <div class="form-split-right">
                         </div>
                     </div>
-
-                    <button>
-                        
-                    </button>
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>
     </div>
+
 </body>
 
 </html>
-
-<?php $stmt->close(); ?>

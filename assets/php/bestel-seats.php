@@ -231,7 +231,9 @@
 <p></p>
 <input type="checkbox" name="Seat" value="checked" class="checkbox-css" />
 <p></p>
-</div>
+<input type="checkbox" name="Seat" value="checked" class="checkbox-css" />
+<p></p>
+</div>  
 
 </div>
 <input type="submit" value="submit" />

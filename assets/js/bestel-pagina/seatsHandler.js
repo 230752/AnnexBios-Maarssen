@@ -7,7 +7,7 @@ let tickets;
 function refreshTickets() {
     let html = ""
     
-    for (let [index, tbl] of Object.entries(seatsData)) {
+    for (let [_, tbl] of Object.entries(seatsData)) {
         if (!tbl.toggle) continue
 
         console.log(`Refresh ${tbl.seat}: ${tbl.toggle}`)
@@ -64,8 +64,6 @@ function updateTicket(element) {
     const dataDecode = JSON.parse(dataElement.value)
 
     dataDecode.ticketType = ticketIndex
-
-    console.log(dataDecode)
 
     priceElement.innerHTML = `&euro;${ticketPrice}`
     dataElement.value = JSON.stringify(dataDecode)

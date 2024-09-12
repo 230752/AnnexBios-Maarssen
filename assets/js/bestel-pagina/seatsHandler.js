@@ -13,3 +13,8 @@ function onSeatClick(element) {
     seatsData[elementId].toggle = !seatsData[elementId].toggle
     seatsData[elementId].img.style.filter = seatsData[elementId].toggle ? "brightness(50%)" : "brightness(100%)"
 }
+
+function updateTicket(element) {
+    const selected = element.value
+    console.log(selected)
+}

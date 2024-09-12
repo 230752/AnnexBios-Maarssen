@@ -105,68 +105,34 @@ $stmt->close();
                                         PRIJS
                                     </p>
                                     <p class="form-tickets-p global-secondary">
-                                        AANTAL
+                                        SELECT
                                     </p>
                                 </div>
 
                                 <div class="global-thinner-line global-background-secondary"></div>
 
-                                <?php
-                                $types = [
-                                    array(
-                                        "name" => "ticketNormaal",
-                                        "type" => "Normaal",
-                                        "price" => "9,00"
-                                    ),
-                                    array(
-                                        "name" => "ticketKind",
-                                        "type" => "Kind t/m 11 jaar",
-                                        "price" => "5,00"
-                                    ),
-                                    array(
-                                        "name" => "ticketOld",
-                                        "type" => "65 +",
-                                        "price" => "7,00"
-                                    )
-                                ];
-                                
-                                foreach ($types as $typeTbl) {
-                                    $name = $typeTbl["name"];
-                                    $type = $typeTbl["type"];
-                                    $price = $typeTbl["price"]
-                                    
-                                    ?>
-
+                                <div id="tickets-container">
                                     <div class="form-tickets-content">
                                         <!-- TYPE -->
-                                        <p class="form-tickets-p global-secondary">
-                                            <?= $type ?>
+                                        <p id="type" class="form-tickets-p global-secondary">
+                                            TYPE
                                         </p>
 
                                         <!-- PRIJS -->
-                                        <p class="form-tickets-p global-secondary">
-                                            &euro;<?= $price ?>
+                                        <p id="price" class="form-tickets-p global-secondary">
+                                            PRICE
                                         </p>
 
                                         <!-- AANTAL -->
-                                        <select name="tickets[<?= $name ?>]" class="form-tickets-selection">
-                                            <option selected value="0">0</option>
+                                        <select class="form-tickets-selection" onchange="updateTicket(this)">
+                                            <option selected value="0">Normaal</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
                                         </select>
-                                    </div>
 
-                                    <?php
-                                };
-                                ?>
+                                        <input type="hidden" id="value" name="tickets[]" value="[]">
+                                    </div>
+                                </div>
 
                                 <div class="global-thinner-line global-background-secondary"></div>
 

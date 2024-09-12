@@ -1,7 +1,6 @@
 let ticketContainer = document.getElementById("tickets-container")
 
 let seatsData = {}
-
 let tickets;
 
 function refreshTickets() {
@@ -9,8 +8,6 @@ function refreshTickets() {
     
     for (let [_, tbl] of Object.entries(seatsData)) {
         if (!tbl.toggle) continue
-
-        console.log(`Refresh ${tbl.seat}: ${tbl.toggle}`)
 
         const seatDecode = JSON.parse(tbl.seat)
 

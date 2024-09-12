@@ -16,9 +16,20 @@
             <p id="sub-header-title">KOOP JE TICKETS</p>
             <select name="" id="movie-selector">
                 <option value="">Kies je film</option>
-                <option value="">Shrek 4</option>
+                <option value="jurassic-world">Jurassic world: Fallen Kingdom</option>
             </select>
             <a id="bestel-btn" href="bestel-pagina">BESTEL TICKETS</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('movie-selector').addEventListener('change', function() {
+            var bestelBtn = document.getElementById('bestel-btn');
+            if (this.value === 'jurassic-world') {
+                bestelBtn.href = 'bestel-pagina?id=101';
+            } else {
+                bestelBtn.href = 'bestel-pagina'; 
+            }
+        });
+    </script>
 </header>

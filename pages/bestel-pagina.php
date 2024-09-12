@@ -1,3 +1,32 @@
+<?php
+include 'database/db_connect.php';
+
+if (isset($_GET['id'])) {
+    $movie_id = $_GET['id'];
+
+    $sql = "
+    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip
+    FROM movies m
+    JOIN movieagenda ma ON m.id = ma.movie_id
+    WHERE m.id = ?
+";
+}
+
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->bind_param('i', $movie_id);
+
+    $stmt->execute();
+
+    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
+    $stmt->fetch();
+}
+
+$stmt->close();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,20 +60,20 @@
             <form class="form-container" action="" method="post">
                     <div class="form-selections">
                         <div class="form-selection">
-                            [INSERT MOVIE NAME HERE]
+                        <?php echo htmlspecialchars($movie);?>
                         </div>
                         <!-- 
                             Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
                         -->
                         <select name="date" class="form-selection" required>
                             <option selected disabled hidden>DATUM</option>
-                            <option value="1">1</option>
+                            <option value="1"><?php echo htmlspecialchars($agenda_startdate); ?></option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                         <select name="timeStamp" class="form-selection" required>
                             <option selected disabled hidden>TIJDSTIP</option>
-                            <option value="1">1</option>
+                            <option value="1"><?php echo htmlspecialchars($tijdstip); ?></option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
@@ -123,6 +152,13 @@
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
                                         </select>
                                     </div>
 
@@ -155,18 +191,16 @@
                                 </h1>
                             </div>
 
-                            <!-- TODO: PUT IN YOUR SEATS CONTAINER HERE -->
-
                             <!-- STAP 3 -->
                             <h1 class="global-primary form-left-fix form-step">
                                 STAP 3: CONTROLEER JE BESTELLING
                             </h1>
 
-                            <div class="form-preview-container form-global-margin">
-                                <img src="assets/films/deadpool.jpg" alt="" class="form-preview-img">
-
+                            <div class="form-preview-container">
+                            <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
                                 <div class="form-preview-sub">
-                                    <h1 class="global-secondary">DEADPOOL</h1>
+                                    <h1 class="global-secondary"><?php echo htmlspecialchars($movie);?>
+                                    </h1>
 
                                     <div>
                                         <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
@@ -174,13 +208,13 @@
                                         <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
                                     </div>
 
-                                    <div class="form-review-desc">
-                                        <p class="form-review-desc-p global-secondary">Bioscoop: INSERT HERE</p>
-                                        <p class="form-review-desc-p global-secondary">Wanneer: INSERT HERE</p>
-                                        <p class="form-review-desc-p global-secondary">Soelen: Rij 2, stoel 7</p>
-                                        <p class="form-review-desc-p global-secondary">Tickets: 1x normaal</p>
+                                    <div>
+                                        <p class="global-secondary">Bioscoop: AnnexBios-Maarsen</p>
+                                        <p class="global-secondary">Wanneer: <?php echo htmlspecialchars($agenda_startdate); ?></p>
+                                        <p class="global-secondary">Stoelen: Rij 2, stoel 7</p>
+                                        <p class="global-secondary">Tickets: 1x normaal</p>
                                         <br>
-                                        <p class="form-review-desc-p global-secondary">Totaal 1 ticket: &euro;9,00</p>
+                                        <p class="global-secondary">Bioscoop: AnnexBios</p>
                                     </div>
                                 </div>
                             </div>
@@ -208,14 +242,11 @@
                         <div class="form-split-right">
                         </div>
                     </div>
-
-                    <button>
-                        
-                    </button>
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>
     </div>
+
 </body>
 
 </html>

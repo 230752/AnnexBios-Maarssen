@@ -3,6 +3,18 @@ let ticketContainer = document.getElementById("tickets-container")
 let seatsData = {}
 let tickets;
 
+async function checkCoupon() {
+    const data = fetch("api/checkCoupon.php", {
+        method: "POST",
+        body: JSON.stringify({
+            couponCode: "FREEMONEY"
+        }),
+    })
+    let json = (await data).json()
+    
+    console.log(json)
+}
+
 function refreshTickets() {
     let html = ""
     
@@ -75,3 +87,5 @@ async function init() {
 }
 
 init()
+
+checkCoupon()

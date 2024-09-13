@@ -8,7 +8,7 @@
         <div id="header-buttons">
             <a class="header-button" href="film-agenda">FILM AGENDA</a>
             <a class="header-button" href="vestigingen">ALLE VESTIGINGEN</a>
-            <a class="header-button" href="contact">CONTACT</a>
+            <a class="header-button" href="home#about-box-2">CONTACT</a>
         </div>
     </div>
     <div id="sub-header">

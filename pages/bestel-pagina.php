@@ -1,6 +1,6 @@
 <?php
 include 'database/db_connect.php';
-
+$movie_id = null;
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
@@ -12,17 +12,16 @@ if (isset($_GET['id'])) {
 ";
 }
 
-if ($stmt = $conn->prepare($sql)) {
+if ($movie_id && $stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $movie_id);
 
     $stmt->execute();
 
     $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
     $stmt->fetch();
+
+    $stmt->close();
 }
-
-$stmt->close();
-
 ?>
 
 
@@ -53,6 +52,21 @@ $stmt->close();
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
+
+        <?php
+            if (!$movie_id) {
+            ?>
+            <main style="border:none;">
+                <div class="main-header-container">
+                    <h1 class="main-header-title">Deze film bestaat niet.</h1>
+                </div>
+            </main>
+            <?php
+
+            exit();
+        }
+        ?>
+        
         <main>
             <div class="main-header-container">
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>

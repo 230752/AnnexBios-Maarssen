@@ -25,8 +25,9 @@
     </div>
 
     <script>
+        const bestelBtn = document.getElementById('bestel-btn');
+
         document.getElementById('movie-selector').addEventListener('change', function() {
-            var bestelBtn = document.getElementById('bestel-btn');
             if (this.value === 'jurassic-world') {
                 bestelBtn.href = 'bestel-pagina?id=101';
             } else {

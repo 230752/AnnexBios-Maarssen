@@ -1,4 +1,6 @@
 <header>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
     <div id="main-header">
         <div id="header-logo-container">
             <a href="home">

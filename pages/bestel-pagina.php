@@ -131,9 +131,9 @@ $stmt->close();
                                 <p class="form-tickets-p global-secondary">
                                     VOUCHERCODE
                                 </p>
-                                <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary" placeholder="Code">
+                                <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary" id="coupon-text" placeholder="Code">
                                 <!-- TODO: Add onclick function when api is done :thumb: -->
-                                <input type="button" value="TOEVOEGEN" onclick="" class="global-btn form-tickets-voucher-btn">  
+                                <input style="cursor:pointer;" type="button" value="TOEVOEGEN" onclick="checkCoupon(this)" class="global-btn form-tickets-voucher-btn">  
                             </div>
                         </div>
                         
@@ -184,7 +184,7 @@ $stmt->close();
                             STAP 5: KIES JE BETAALWIJZE
                         </h1>
 
-                        <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn"> 
+                        <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn"> 
                 </div>
                 <div class="form-split-right">
                 </div>

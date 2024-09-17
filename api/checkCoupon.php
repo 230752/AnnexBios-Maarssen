@@ -1,13 +1,33 @@
 <?php
-$body = trim(file_get_contents("php://input"));
+// Core
+$content = trim(file_get_contents("php://input"));
+$decoded = json_decode($content, true);
 
-if (!isset($body["couponCode"])) {
+// POST values
+$couponCode = $decoded["couponCode"]; 
+
+// Check values
+$IS_COUPON_VALID = $couponCode == "FREEMONEY";
+$PROCENT_OFF = 20;
+
+// PUT DATABASE CHECKING HERE \\
+
+
+
+// --------------------------- \\
+
+
+// Coupon check
+if ($IS_COUPON_VALID) {
     echo json_encode(array(
-        "valid" => false
+        "procent" => $PROCENT_OFFs,
+        "valid" => true
     ));
+
+    return;
 }
 
 echo json_encode(array(
-    "valid" => true
+    "valid" => false
 ));
 ?>

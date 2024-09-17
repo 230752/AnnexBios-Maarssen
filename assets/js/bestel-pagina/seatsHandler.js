@@ -3,16 +3,22 @@ let ticketContainer = document.getElementById("tickets-container")
 let seatsData = {}
 let tickets;
 
-async function checkCoupon() {
+async function checkCoupon(element) {
+    const parent = element.parentElement
+    const couponText = parent.children[1]
+
     const data = fetch("api/checkCoupon.php", {
         method: "POST",
         body: JSON.stringify({
-            couponCode: "FREEMONEY"
+            ["couponCode"]: couponText.value
         }),
     })
-    let json = (await data).json()
-    
-    console.log(json)
+
+    const promise = (await data).json()
+
+    promise.then((response) => {
+        alert(`Coupon "${couponText.value}" is ${response.valid}`)
+    })
 }
 
 function refreshTickets() {
@@ -59,7 +65,7 @@ function onSeatClick(element) {
     
     seatsData[elementId].toggle = targetToggle
     seatsData[elementId].img.style.filter = targetToggle ? "brightness(50%)" : "brightness(100%)"
-
+    
     refreshTickets()
 }
 
@@ -87,5 +93,3 @@ async function init() {
 }
 
 init()
-
-checkCoupon()

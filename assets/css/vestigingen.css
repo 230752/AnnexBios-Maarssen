@@ -1,0 +1,27 @@
+/* GRID SHIT */
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 150px 1fr 0fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 5;
+}
+main {
+  grid-area: 2 / 1 / 4 / 5;
+}
+footer {
+  grid-area: 4 / 1 / 5 / 5;
+}
+/* END GRID SHIT */
+
+main {
+  padding-bottom: 50%;
+}
+
+#test {
+    background-color: #9e2629;
+}

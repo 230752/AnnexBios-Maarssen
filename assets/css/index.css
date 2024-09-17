@@ -24,7 +24,7 @@ main {
 
 /* INTRO */
 #intro {
-  background-image: url("../images/backgrounds/header_afbeelding.jpg");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), #080404), url("../images/backgrounds/header_afbeelding.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;

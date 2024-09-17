@@ -25,6 +25,7 @@
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
+        <!-- <?php include "assets/php/api-test.php" ?> -->
         <main>
             <!-- Background image -->
             <div id="intro">

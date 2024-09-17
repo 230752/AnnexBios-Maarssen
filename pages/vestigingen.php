@@ -24,8 +24,21 @@
     <div id="container">
         <?php include "assets/php/header.php" ?>
         <main>
-            <div id="test">
-                <h1>test</h1>
+            <div id="branch-container">
+                <div id="main-branch">
+                    <h1>HOOFDKANTOOR ANNEXBIOS</h1>
+                </div>
+                <div id="sub-branch-container">
+                    <div id="sub-branch1">
+                        <h1>SUB-BRANCH</h1>
+                    </div>
+                    <div id="sub-branch2">
+                        <h1>SUB-BRANCH</h1>
+                    </div>
+                    <div id="sub-branch3">
+                        <h1>SUB-BRANCH</h1>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>

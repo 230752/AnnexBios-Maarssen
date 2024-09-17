@@ -1,5 +1,5 @@
 <?php
-include 'database/db_connect.php';
+include_once 'database/db_connect.php';
 $movie_id = null;
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
@@ -45,8 +45,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 </head>
 
 <body>
@@ -54,29 +53,28 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
         <?php include "assets/php/header.php" ?>
 
         <?php
-            if (!$movie_id) {
-            ?>
+        if (!$movie_id) {
+        ?>
             <main style="border:none;">
                 <div class="main-header-container">
                     <h1 class="main-header-title">Deze film bestaat niet.</h1>
                 </div>
             </main>
-            <?php
+        <?php
 
             exit();
         }
         ?>
-        
+
         <main>
             <div class="main-header-container">
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
-            
             <form class="form-container" action="" method="post">
                 <div class="form-selections">
                     <div class="form-selection">
-                    <?php echo htmlspecialchars($movie);?>
+                        <?php echo htmlspecialchars($movie); ?>
                     </div>
                     <!-- 
                         Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
@@ -97,7 +95,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                 <div class="form-splitter">
                     <div class="form-split-left">
                         <?php
-                        function prettyDump($string) {
+                        function prettyDump($string)
+                        {
                             echo "<pre>";
                             var_dump($string);
                             echo "</pre>";
@@ -108,7 +107,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 1: KIES JE STOEL
 
-                        </h1>        
+                        </h1>
                         <div class="global-center filmdoek">
                             <div class="global-line global-background-primary form-line"></div>
                             <h1 class="global-primary form-left-fix">
@@ -147,18 +146,18 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                                 </p>
                                 <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary" id="coupon-text" placeholder="Code">
                                 <!-- TODO: Add onclick function when api is done :thumb: -->
-                                <input style="cursor:pointer;" type="button" value="TOEVOEGEN" onclick="checkCoupon(this)" class="global-btn form-tickets-voucher-btn">  
+                                <input style="cursor:pointer;" type="button" value="TOEVOEGEN" onclick="checkCoupon(this)" class="global-btn form-tickets-voucher-btn">
                             </div>
                         </div>
-                        
+
                         <!-- STAP 3 -->
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 3: CONTROLEER JE BESTELLING
                         </h1>
                         <div class="form-preview-container">
-                        <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
+                            <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
                             <div class="form-preview-sub">
-                                <h1 class="global-secondary"><?php echo htmlspecialchars($movie);?>
+                                <h1 class="global-secondary"><?php echo htmlspecialchars($movie); ?>
                                 </h1>
 
                                 <div>
@@ -198,10 +197,11 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             STAP 5: KIES JE BETAALWIJZE
                         </h1>
 
-                        <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn"> 
-                </div>
-                <div class="form-split-right">
-                </div>
+                        <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn">
+                    </div>1
+                    
+                    <div class="form-split-right">
+                    </div>
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>

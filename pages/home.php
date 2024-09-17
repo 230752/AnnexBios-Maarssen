@@ -23,9 +23,13 @@
 </head>
 
 <body>
+    <?php 
+    $fetchApiData = include("assets/modules/funcs/fetchApiData.php");
+    $fetchApiData("movies")
+    ?>
+
     <div id="container">
         <?php include "assets/php/header.php" ?>
-        <!-- <?php include "assets/php/api-test.php" ?> -->
         <main>
             <!-- Background image -->
             <div id="intro">

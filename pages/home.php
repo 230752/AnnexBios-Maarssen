@@ -24,10 +24,10 @@
 
 <body>
     <?php 
-    $fetchApiData = include("assets/modules/funcs/fetchApiData.php");
-    $response = $fetchApiData("movies");
+    // $fetchApiData = include("assets/modules/funcs/fetchApiData.php");
+    // $response = $fetchApiData("movies");
 
-    var_dump($response);    
+    // var_dump($response);    
     ?>
 
     <div id="container">

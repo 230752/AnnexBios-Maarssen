@@ -25,7 +25,9 @@
 <body>
     <?php 
     $fetchApiData = include("assets/modules/funcs/fetchApiData.php");
-    $fetchApiData("movies")
+    $response = $fetchApiData("movies");
+
+    var_dump($response);    
     ?>
 
     <div id="container">

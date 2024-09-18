@@ -4,7 +4,7 @@ include_once 'database/db_connect.php';
 $stripInjections = require_once('assets/modules/funcs/stripInjections.php');
 
 $apiUrl = "https://annexbios-server.onrender.com/api/";
-$MAX_ELAPSED_TIME = 60; // Seconds
+$MAX_ELAPSED_TIME = 20; // Seconds
 
 $whitelist = array("movies" => true);
 
@@ -29,7 +29,6 @@ return function ($apiName) {
     if (!$whitelist[$apiName]) return;
 
     global $MAX_ELAPSED_TIME;
-    global $apiUrl;
     global $conn;
 
     // Check if it's time to update
@@ -47,49 +46,58 @@ return function ($apiName) {
     $stmt->fetch();
     $stmt->close();
 
-    $json = null;
     $currentTime = time();
     $elapsed = isset($last_updated)
         ? time() - $last_updated
         : 0;
 
-    // Check if Exists, if not creates one
+    // Check if sql exists, if not creates one
     if ($name == null) {
-        // Get data from database
+        // Get data from api
         $rawResponse = connectServerApi($apiName);
 
-        // Make
+        // Make sql data from the api data
         $createSql = "
             INSERT INTO `api` (`name`, `last_updated`, `json`)
             VALUES ('{$apiName}', '{$currentTime}', '{$rawResponse}')
         ";
-
-        echo $createSql;
         
         $stmt = $conn->prepare($createSql);
         $stmt->execute();
         $stmt->fetch();
         $stmt->close();
 
-        echo "Created";
+        // echo "Created";
 
         return $rawResponse;
     }
 
+    // Timeout, gives sql data instead of api data
     if ($elapsed < $MAX_ELAPSED_TIME) {
-        echo "timeout";
+        // echo "timeout";
 
         return $json;
     }
 
-    $updateSql = "
-        UPDATE `api`
-        SET 
-            `last_updated` = '{$currentTime}',
-            `json` = ''
-        WHERE api.name = {$name}
-    ";
 
-    echo "update";
+    // Updating sql with api data
+    $rawResponse = connectServerApi($apiName);
+
+    $updateSql = "
+    UPDATE `api`
+    SET
+        `last_updated` = '{$currentTime}',
+        `json` = '{$rawResponse}'
+    WHERE `api`.`name` = '{$name}';
+    ";
+ 
+    $stmt = $conn->prepare($updateSql);
+    $stmt->execute();
+    $stmt->fetch();
+    $stmt->close();
+
+    // echo "update";
+    
+    return $rawResponse;
 }
 ?>

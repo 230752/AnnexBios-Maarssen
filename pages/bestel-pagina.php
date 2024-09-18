@@ -46,7 +46,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-        rel="stylesheet">
 </head>
 
 <body>
@@ -99,8 +98,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                 <div class="form-splitter">
                     <div class="form-split-left">
                         <?php
-                        function prettyDump($string)
-                        {
                         function prettyDump($string)
                         {
                             echo "<pre>";
@@ -165,9 +162,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         </h1>
                         <div class="form-preview-container">
                             <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
-                            <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
                             <div class="form-preview-sub">
-                                <h1 class="global-secondary"><?php echo htmlspecialchars($movie); ?>
                                 <h1 class="global-secondary"><?php echo htmlspecialchars($movie); ?>
                                 </h1>
 

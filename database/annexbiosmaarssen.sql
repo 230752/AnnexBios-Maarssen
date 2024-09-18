@@ -59,10 +59,10 @@ CREATE TABLE `movieagenda` (
 -- Gegevens worden geëxporteerd voor tabel `movieagenda`
 --
 
-INSERT INTO `movieagenda` (`agenda_id`, `movie_id`, `agenda_startdate`, `agenda_enddate`) VALUES
-(1, 101, '2024-09-01', '2024-09-07'),
-(2, 102, '2024-09-08', '2024-09-14'),
-(3, 103, '2024-09-15', '2024-09-21');
+INSERT INTO `movieagenda` (`agenda_id`, `movie_id`, `agenda_startdate`, `agenda_enddate`, `tijdstip`) VALUES
+(1, 101, '2024-09-17', '2024-09-17', '19:00:00'),
+(2, 102, '2024-09-08', '2024-09-14', '00:00:00'),
+(3, 103, '2024-09-15', '2024-09-21', '00:00:00');
 
 -- --------------------------------------------------------
 

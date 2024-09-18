@@ -1,6 +1,7 @@
 <?php
 include_once 'database/db_connect.php';
 $movie_id = null;
+
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
@@ -54,13 +55,13 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
         <?php
         if (!$movie_id) {
-        ?>
+            ?>
             <main style="border:none;">
                 <div class="main-header-container">
                     <h1 class="main-header-title">Deze film bestaat niet.</h1>
                 </div>
             </main>
-        <?php
+            <?php
 
             exit();
         }
@@ -71,10 +72,11 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
+
             <form class="form-container" action="" method="post">
                 <div class="form-selections">
                     <div class="form-selection">
-                        <?php echo htmlspecialchars($movie); ?>
+                        <?php echo htmlspecialchars($movie);?>
                     </div>
                     <!-- 
                         Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
@@ -92,6 +94,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         <option value="3">3</option>
                     </select>
                 </div>
+
                 <div class="form-splitter">
                     <div class="form-split-left">
                         <?php
@@ -102,12 +105,12 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             echo "</pre>";
                         }
                         prettyDump($_POST)
-                        ?>
+                            ?>
                         <!-- STAP 1 -->
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 1: KIES JE STOEL
-
                         </h1>
+
                         <div class="global-center filmdoek">
                             <div class="global-line global-background-primary form-line"></div>
                             <h1 class="global-primary form-left-fix">
@@ -123,7 +126,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         <div class="form-tickets-container form-global-margin">
                             <div class="form-tickets-content">
                                 <p class="form-tickets-p global-secondary">
-                                    STOEL
+                                        TYPE
                                 </p>
                                 <p class="form-tickets-p global-secondary">
                                     PRIJS
@@ -138,13 +141,17 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             <div id="tickets-container">
                             </div>
 
+                                    <?php
+                                ?>
+
                             <div class="global-thinner-line global-background-secondary"></div>
 
                             <div class="global-center form-tickets-voucher-container">
                                 <p class="form-tickets-p global-secondary">
                                     VOUCHERCODE
                                 </p>
-                                <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary" id="coupon-text" placeholder="Code">
+                                <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary"
+                                    id="coupon-text" placeholder="Code">
                                 <!-- TODO: Add onclick function when api is done :thumb: -->
                                 <input style="cursor:pointer;" type="button" value="TOEVOEGEN" onclick="checkCoupon(this)" class="global-btn form-tickets-voucher-btn">
                             </div>
@@ -168,7 +175,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
                                 <div>
                                     <p class="global-secondary">Bioscoop: AnnexBios-Maarsen</p>
-                                    <p class="global-secondary">Wanneer: <?php echo htmlspecialchars($agenda_startdate); ?></p>
+                                    <p class="global-secondary">Wanneer:
+                                        <?php echo htmlspecialchars($agenda_startdate); ?></p>
                                     <p class="global-secondary">Stoelen: Rij 2, stoel 7</p>
                                     <p class="global-secondary">Tickets: 1x normaal</p>
                                     <br>
@@ -184,11 +192,17 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
                         <div class="form-info-container form-global-margin">
                             <div class="global-center form-info-content">
-                                <input type="text" name="firstName" class="form-tickets-voucher-text global-secondary form-info-text" placeholder="Voornaam">
-                                <input type="text" name="lastName" class="form-tickets-voucher-text global-secondary form-info-text" placeholder="Achternaam*" required>
+                                <input type="text" name="firstName"
+                                    class="form-tickets-voucher-text global-secondary form-info-text"
+                                    placeholder="Voornaam">
+                                <input type="text" name="lastName"
+                                    class="form-tickets-voucher-text global-secondary form-info-text"
+                                    placeholder="Achternaam*" required>
                             </div>
                             <div class="global-center">
-                                <input type="text" name="email" class="form-tickets-voucher-text global-secondary form-info-text" placeholder="E-mailadres*" required>
+                                <input type="text" name="email"
+                                    class="form-tickets-voucher-text global-secondary form-info-text"
+                                    placeholder="E-mailadres*" required>
                             </div>
                         </div>
 
@@ -197,10 +211,25 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             STAP 5: KIES JE BETAALWIJZE
                         </h1>
 
-                        <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn">
-                    </div>1
-                    
-                    <div class="form-split-right">
+
+                        <div class="checkbox-wrapper-62">
+                            <input type="checkbox" class="check" id="check1-62" />
+                            <label for="check1-62" class="label">
+                                <svg width="43" height="43" viewbox="0 0 90 90">
+                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none" />
+                                    <g transform="translate(0,-952.36218)">
+                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                    </g>
+                                </svg>
+                                <span>Checkbox</span>
+                            </label>
+                        </div>
+
+                        <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn">
+                    </div>
+
+                  <div class="form-split-right">
                     </div>
             </form>
         </main>

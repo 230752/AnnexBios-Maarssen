@@ -26,99 +26,35 @@
         <main>
             <div id="background-img">
                 <div id="movie-roster-container">
-                        <div id="movie-roster">
-                            <div id="movie-roster-title">
-                                <h1>FILM AGENDA</h1>
+                    <div id="movie-roster">
+                        <div id="movie-roster-title">
+                            <h1>FILM AGENDA</h1>
+                        </div>
+                        <div id="filter-container">
+                            <p style="color: white">icon</p>
+                            <div class="filter-checkbox-container">
+                                <input class="filter-checkbox" type="checkbox">
+                                <p>FILMS</p>
                             </div>
-                            <div id="filter-container">
-                                <p style="color: white">icon</p>
-                                <div class="filter-checkbox-container">
-                                    <input class="filter-checkbox" type="checkbox">
-                                    <p>FILMS</p>
-                                </div>
-                                <div class="filter-checkbox-container">
-                                    <input class="filter-checkbox" type="checkbox">
-                                    <P>DEZE WEEK</P>
-                                </div>
-                                <div class="filter-checkbox-container">
-                                    <input class="filter-checkbox" type="checkbox">
-                                    <p>VANDAAG</p>
-                                </div>
-                                <div class="filter-checkbox-container">
-                                    <input class="filter-checkbox" type="checkbox">
-                                    <select name="" id="filter-selector">
-                                        <option value="">CATEGORIE</option>
-                                        <option value="">ACTION</option>
-                                    </select>
-                                </div>
+                            <div class="filter-checkbox-container">
+                                <input class="filter-checkbox" type="checkbox">
+                                <P>DEZE WEEK</P>
                             </div>
-                            <div id="movie-box-container">
-                                <div class="movie-box">
-                                    <img class="movie-box-img" src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
-                                <div class="movie-box">
-                                    <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
-                                <div class="movie-box">
-                                    <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
-                                <div class="movie-box">
-                                    <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
-                                <div class="movie-box">
-                                    <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
-                                <div class="movie-box">
-                                    <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
-                                <div class="movie-box">
-                                    <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                                    <div class="movie-box-info">
-                                        <h2>Test Title</h2>
-                                        <p>Release: blah-blah-blah</p>
-                                        <p>Beschrijving blah-blah-blah</p>
-                                        <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                                    </div>
-                                </div>
+                            <div class="filter-checkbox-container">
+                                <input class="filter-checkbox" type="checkbox">
+                                <p>VANDAAG</p>
+                            </div>
+                            <div class="filter-checkbox-container">
+                                <input class="filter-checkbox" type="checkbox">
+                                <select name="" id="filter-selector">
+                                    <option value="">CATEGORIE</option>
+                                    <option value="">ACTION</option>
+                                </select>
                             </div>
                         </div>
+                        <?php include "assets/php/film-agenda-loop.php"?>
                     </div>
+                </div>
             </div>
         </main>
         <footer>

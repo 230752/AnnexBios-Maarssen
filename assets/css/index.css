@@ -24,7 +24,7 @@ main {
 
 /* INTRO */
 #intro {
-  background-image: url("../images/backgrounds/header_afbeelding.jpg");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #080404), url("../images/backgrounds/header_afbeelding.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -115,11 +115,14 @@ main {
 
 #abt-box2-2 {
   padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cinema-img {
   width: 100%;
-  height: 503px;
+  height: 500px;
 }
 /* END INTRO */
 
@@ -200,7 +203,8 @@ main {
 
 .movie-box {
   width: 180px;
-  background-color: white;
+  background-color: #fff;
+  color: #686464;
   display: flex;
   flex-direction: column;
   transition: ease-in-out 0.2s;
@@ -218,6 +222,17 @@ main {
 .movie-box-info {
   padding: 10px;
   padding-bottom: 20px;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+}
+
+.movie-desc {
+  font-size: 0.8rem;
+  max-height: 4.7em; /* Adjust based on the number of lines you want to show */
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .movie-box-btn {

@@ -15,7 +15,7 @@
                 ?> 
 
                 <button class="seat-btn" type="button" id="<?=$data?>" onclick="onSeatClick(this)">
-                    <img src="assets/images/icons/rood_stoel.png" alt="" class="seat-img">
+                    <img src="assets/images/icons/rood_stoel.png" alt="" class="seat-img" id="off">
                 </button>
                 
                 <?php

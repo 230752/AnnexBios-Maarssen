@@ -23,7 +23,7 @@ main {
 }
 
 #background-img {
-  background-image: url("../images/backgrounds/header_afbeelding.jpg");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), #080404), url("../images/backgrounds/header_afbeelding.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -125,10 +125,29 @@ main {
   padding-bottom: 20px;
 }
 
+.movie-title {
+  font-size: 1.2rem;
+}
+
+.movie-desc {
+  font-size: 0.8rem;
+  max-height: 4.7em; /* Adjust based on the number of lines you want to show */
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
 .movie-box-btn {
   background-color: #9e2629;
   color: white;
   text-decoration: none;
   font-size: 0.8rem;
   padding: 10px;
+}
+
+#more-movies-btn {
+  background-color: #9e2629;
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 8px 26px;
 }

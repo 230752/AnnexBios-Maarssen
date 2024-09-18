@@ -46,8 +46,7 @@ $stmt->close();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 </head>
 
 <body>
@@ -58,11 +57,11 @@ $stmt->close();
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
-            
+
             <form class="form-container" action="" method="post">
                 <div class="form-selections">
                     <div class="form-selection">
-                    <?php echo htmlspecialchars($movie);?>
+                        <?php echo htmlspecialchars($movie); ?>
                     </div>
                     <!-- 
                         Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
@@ -83,7 +82,8 @@ $stmt->close();
                 <div class="form-splitter">
                     <div class="form-split-left">
                         <?php
-                        function prettyDump($string) {
+                        function prettyDump($string)
+                        {
                             echo "<pre>";
                             var_dump($string);
                             echo "</pre>";
@@ -94,7 +94,7 @@ $stmt->close();
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 1: KIES JE STOEL
 
-                        </h1>        
+                        </h1>
                         <div class="global-center filmdoek">
                             <div class="global-line global-background-primary form-line"></div>
                             <h1 class="global-primary form-left-fix">
@@ -133,18 +133,18 @@ $stmt->close();
                                 </p>
                                 <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary" placeholder="Code">
                                 <!-- TODO: Add onclick function when api is done :thumb: -->
-                                <input type="button" value="TOEVOEGEN" onclick="" class="global-btn form-tickets-voucher-btn">  
+                                <input type="button" value="TOEVOEGEN" onclick="" class="global-btn form-tickets-voucher-btn">
                             </div>
                         </div>
-                        
+
                         <!-- STAP 3 -->
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 3: CONTROLEER JE BESTELLING
                         </h1>
                         <div class="form-preview-container">
-                        <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
+                            <img src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
                             <div class="form-preview-sub">
-                                <h1 class="global-secondary"><?php echo htmlspecialchars($movie);?>
+                                <h1 class="global-secondary"><?php echo htmlspecialchars($movie); ?>
                                 </h1>
 
                                 <div>
@@ -184,10 +184,24 @@ $stmt->close();
                             STAP 5: KIES JE BETAALWIJZE
                         </h1>
 
-                        <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn"> 
-                </div>
-                <div class="form-split-right">
-                </div>
+                        <div class="checkbox-wrapper-62">
+                            <input type="checkbox" class="check" id="check1-62" />
+                            <label for="check1-62" class="label">
+                                <svg width="43" height="43" viewbox="0 0 90 90">
+                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none" />
+                                    <g transform="translate(0,-952.36218)">
+                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                    </g>
+                                </svg>
+                                <span>Checkbox</span>
+                            </label>
+                        </div>
+
+                        <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn">
+                    </div>
+                    <div class="form-split-right">
+                    </div>
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>

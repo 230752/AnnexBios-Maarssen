@@ -1,6 +1,7 @@
 <?php
-include 'database/db_connect.php';
-query: $movie_id = null;
+include_once 'database/db_connect.php';
+$movie_id = null;
+
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
@@ -108,9 +109,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         <!-- STAP 1 -->
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 1: KIES JE STOEL
+                        </h1>
 
-                        </h1>
-                        </h1>
                         <div class="global-center filmdoek">
                             <div class="global-line global-background-primary form-line"></div>
                             <h1 class="global-primary form-left-fix">
@@ -153,10 +153,9 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                                 <input type="text" name="voucher" class="form-tickets-voucher-text global-secondary"
                                     id="coupon-text" placeholder="Code">
                                 <!-- TODO: Add onclick function when api is done :thumb: -->
-                                <input type="button" value="TOEVOEGEN" onclick="" class="global-btn form-tickets-voucher-btn">
+                                <input style="cursor:pointer;" type="button" value="TOEVOEGEN" onclick="checkCoupon(this)" class="global-btn form-tickets-voucher-btn">
                             </div>
                         </div>
-
 
                         <!-- STAP 3 -->
                         <h1 class="global-primary form-left-fix form-step">
@@ -212,6 +211,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             STAP 5: KIES JE BETAALWIJZE
                         </h1>
 
+
                         <div class="checkbox-wrapper-62">
                             <input type="checkbox" class="check" id="check1-62" />
                             <label for="check1-62" class="label">
@@ -228,7 +228,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
                         <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn">
                     </div>
-                    <div class="form-split-right">
+
+                  <div class="form-split-right">
                     </div>
             </form>
         </main>

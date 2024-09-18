@@ -191,42 +191,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             STAP 4: VUL JE GEGEVENS IN
                         </h1>
 
-<<<<<<< HEAD
-                            <div class="form-info-container form-global-margin">
-                                <div class="global-center form-info-content">
-                                    <input type="text" name="firstName" class="form-tickets-voucher-text global-secondary form-info-text" placeholder="Voornaam">
-                                    <input type="text" name="lastName" class="form-tickets-voucher-text global-secondary form-info-text" placeholder="Achternaam*" required>
-                                </div>
-                                    <div class="global-center">
-                                    <input type="text" name="email" class="form-tickets-voucher-text global-secondary form-info-text" placeholder="E-mailadres*" required>
-                                </div>
-                            </div>
-                            
-                            <!-- STAP 5 -->
-                            <h1 class="global-primary form-left-fix form-step">
-                                STAP 5: KIES JE BETAALWIJZE
-                            </h1>
-                            <div class="global-center">
-                                
-                            </div>
-                            
-                            <div class="checkbox-wrapper-62-akkoord">
-                                <input type="checkbox" class="check" id="akkoord" name="akkoord" value="akkoord"/>
-                                <label for="akkoord" class="label">
-                                    <svg width="43" height="43" viewBox="0 0 90 90">
-                                        <rect x="30" y="20" width="50" height="50" stroke="red" fill="none" />
-                                        <g transform="translate(0,-952.36218)">
-                                            <path d="m 13,983 c 33,6 40,26 55,48 " stroke="red" stroke-width="3" class="path1" fill="none" />
-                                            <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="red" stroke-width="3" class="path1" fill="none" />
-                                        </g>
-                                    </svg>
-                                    <span>Akkoord</span>
-                                </label>
-                            </div>
-
-                    </div>
-                    <div class="form-split-right">
-=======
                         <div class="form-info-container form-global-margin">
                             <div class="global-center form-info-content">
                                 <input type="text" name="firstName"
@@ -260,7 +224,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                                 </svg>
                                 <span>Checkbox</span>
                             </label>
->>>>>>> fe191eb4f619fa4f6d3ee399c259de9321e36ef2
                         </div>
 
                         <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn">

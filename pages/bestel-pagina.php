@@ -142,7 +142,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             </div>
 
                                     <?php
-                                };
                                 ?>
 
                             <div class="global-thinner-line global-background-secondary"></div>

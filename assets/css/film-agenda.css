@@ -19,114 +19,16 @@ footer {
 /* END GRID SHIT */
 
 main {
-  padding-bottom: 5%;
+  padding-bottom: 55%;
 }
 
-/* INTRO */
-#intro {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #080404), url("../images/backgrounds/header_afbeelding.jpg");
+#background-img {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), #080404), url("../images/backgrounds/header_afbeelding.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-  padding-top: 15%;
-  padding-bottom: 7%;
 }
 
-#about-box {
-  background-color: #9e2629;
-  color: white;
-  width: 80%;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-#welcome-txt {
-  width: 70%;
-  white-space: normal; /* Allow text to wrap */
-  word-wrap: break-word; /* Handle long words */
-  overflow-wrap: break-word; /* Handle long words */
-}
-
-#about-btn {
-  text-decoration: none;
-  background-color: white;
-  color: #9e2629;
-  padding: 10px;
-  max-width: 230px;
-}
-
-#about-box-2 {
-  background-color: white;
-  color: white;
-  font-size: 0.9rem;
-  width: 80%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  gap: 2%;
-}
-
-#about-box-2 p {
-  padding: 0;
-  margin: 0;
-}
-
-#abt-box2-1 {
-  background: url("../images/backgrounds/maps.png");
-  background-size: cover;
-  background-position: center;
-  width: 60%;
-  height: 500px;
-  display: flex;
-  align-items: flex-end;
-}
-
-#abt-box2-text {
-  background-color: #9e2629;
-  width: 100%;
-  height: 35%;
-  padding-left: 8px;
-  padding-top: 15px;
-}
-
-#abt-box2-loc {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-#abt-box2-num {
-  display: flex;
-  align-items: center;
-  margin-left: -11px; /* PHONE ICON INVISIBLE SPACE LEFT */
-  max-height: 40px;
-}
-
-#abt-box2-2 {
-  padding-right: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#cinema-img {
-  width: 100%;
-  height: 500px;
-}
-/* END INTRO */
-
-/* FILM AGENDA */
 #movie-roster-container {
   display: flex;
   justify-content: center;
@@ -134,7 +36,7 @@ main {
 }
 
 #movie-roster {
-  padding-top: 10%;
+  padding-top: 5%;
   width: 81.34%;
 }
 
@@ -203,8 +105,7 @@ main {
 
 .movie-box {
   width: 180px;
-  background-color: #fff;
-  color: #686464;
+  background-color: white;
   display: flex;
   flex-direction: column;
   transition: ease-in-out 0.2s;
@@ -250,4 +151,3 @@ main {
   text-decoration: none;
   padding: 8px 26px;
 }
-/* END FILM AGENDA */

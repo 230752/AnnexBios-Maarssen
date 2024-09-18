@@ -1,0 +1,17 @@
+[
+    {
+        "name": "ticketNormaal",
+        "type": "Normaal",
+        "price": "9,00"
+    },
+    {
+        "name": "ticketKind",
+        "type": "Kind t/m 11 jaar",
+        "price": "5,00"
+    },
+    {
+        "name": "ticketOld",
+        "type": "65 +",
+        "price": "7,00"
+    }
+]

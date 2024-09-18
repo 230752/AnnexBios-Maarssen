@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnexBios Maarssen</title>
+    <!-- SCRIPTS -->
+    <script src="assets/js/api.js"></script>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -23,6 +25,7 @@
 <body>
     <div id="container">
         <?php include "assets/php/header.php" ?>
+        <!-- <?php include "assets/php/api-test.php" ?> -->
         <main>
             <!-- Background image -->
             <div id="intro">
@@ -61,92 +64,28 @@
                         <h1>FILM AGENDA</h1>
                     </div>
                     <div id="filter-container">
-                        <p style="color: white">icon</p>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <p>FILMS</p>
                         </div>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <P>DEZE WEEK</P>
                         </div>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <p>VANDAAG</p>
                         </div>
                         <div class="filter-checkbox-container">
-                            <input class="filter-checkbox" type="radio">
+                            <input class="filter-checkbox" type="checkbox">
                             <select name="" id="filter-selector">
                                 <option value="">CATEGORIE</option>
                                 <option value="">ACTION</option>
                             </select>
                         </div>
                     </div>
-                    <div id="movie-box-container">
-                        <div class="movie-box">
-                            <img class="movie-box-img" src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                        <div class="movie-box">
-                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                        <div class="movie-box">
-                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                        <div class="movie-box">
-                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                        <div class="movie-box">
-                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                        <div class="movie-box">
-                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                        <div class="movie-box">
-                            <img class="movie-box-img"  src="assets/images/misc/placeholder.png" alt="">
-                            <div class="movie-box-info">
-                                <h2>Test Title</h2>
-                                <p>Release: blah-blah-blah</p>
-                                <p>Beschrijving blah-blah-blah</p>
-                                <a class="movie-box-btn" href="">MEER INFO & TICKETS</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "assets/php/film-agenda-loop.php"?>
+                    <a id="more-movies-btn" href="">BEKIJK ALLE FILMS</a>
                 </div>
             </div>
         </main>

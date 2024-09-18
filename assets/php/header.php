@@ -1,4 +1,6 @@
 <header>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
     <div id="main-header">
         <div id="header-logo-container">
             <a href="home">
@@ -8,7 +10,7 @@
         <div id="header-buttons">
             <a class="header-button" href="film-agenda">FILM AGENDA</a>
             <a class="header-button" href="vestigingen">ALLE VESTIGINGEN</a>
-            <a class="header-button" href="contact">CONTACT</a>
+            <a class="header-button" href="home#about-box-2">CONTACT</a>
         </div>
     </div>
     <div id="sub-header">
@@ -23,8 +25,9 @@
     </div>
 
     <script>
+        const bestelBtn = document.getElementById('bestel-btn');
+
         document.getElementById('movie-selector').addEventListener('change', function() {
-            var bestelBtn = document.getElementById('bestel-btn');
             if (this.value === 'jurassic-world') {
                 bestelBtn.href = 'bestel-pagina?id=101';
             } else {

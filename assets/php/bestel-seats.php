@@ -5,17 +5,17 @@
     $rowAmount = 10;
     $columnAmount = 10;
     
-    for ($column = 0; $column <= $columnAmount; $column++) {
+    for ($column = 0; $column < $columnAmount; $column++) {
         ?>
 
         <div class="seat-row">
             <?php
-            for ($row = 0; $row <= $rowAmount; $row++) {
-                $data = "[" . $column . ", ". $row . "]"; 
+            for ($row = 0; $row < $rowAmount; $row++) {
+                $data = "[" . $columnAmount - $column . ", ". $columnAmount -  $row . "]"; 
                 ?> 
 
                 <button class="seat-btn" type="button" id="<?=$data?>" onclick="onSeatClick(this)">
-                    <img src="assets/images/icons/rood_stoel.png" alt="" class="seat-img">
+                    <img src="assets/images/icons/rood_stoel.png" alt="" class="seat-img" id="off">
                 </button>
                 
                 <?php
@@ -27,5 +27,3 @@
     }
     ?>
 </div>
-
-<input type="submit" value="submit" />

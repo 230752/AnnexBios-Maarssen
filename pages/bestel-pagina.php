@@ -10,16 +10,20 @@ if (isset($_GET['id'])) {
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
-";
+    ";
 }
+
+$agenda_startdates = [];
+$tijdstippen = [];
 
 if ($movie_id && $stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $movie_id);
-
     $stmt->execute();
-
     $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
-    $stmt->fetch();
+
+    while ($stmt->fetch()) {
+        $agenda_startdates[$agenda_startdate][] = $tijdstip;
+    }
 
     $stmt->close();
 }
@@ -44,9 +48,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
     <!-- FONT LINKS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -62,7 +64,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                 </div>
             </main>
             <?php
-
             exit();
         }
         ?>
@@ -72,26 +73,25 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
-
             <form class="form-container" action="" method="post">
                 <div class="form-selections">
                     <div class="form-selection">
-                        <?php echo htmlspecialchars($movie);?>
+                        <?php echo htmlspecialchars($movie); ?>
                     </div>
                     <!-- 
                         Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
                     -->
-                    <select name="date" class="form-selection" required>
+                    <select name="date" class="form-selection" id="date-select" required>
                         <option selected disabled hidden>DATUM</option>
-                        <option value="1"><?php echo htmlspecialchars($agenda_startdate); ?></option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <?php
+                        foreach (array_keys($agenda_startdates) as $date) {
+                            echo '<option value="' . htmlspecialchars($date, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($date, ENT_QUOTES, 'UTF-8') . '</option>';
+                        }
+                        ?>
                     </select>
-                    <select name="timeStamp" class="form-selection" required>
+                    
+                    <select name="timeStamp" class="form-selection" id="time-select" required>
                         <option selected disabled hidden>TIJDSTIP</option>
-                        <option value="1"><?php echo htmlspecialchars($tijdstip); ?></option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
                     </select>
                 </div>
 
@@ -104,8 +104,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             var_dump($string);
                             echo "</pre>";
                         }
-                        prettyDump($_POST)
-                            ?>
+                        prettyDump($_POST);
+                        ?>
                         <!-- STAP 1 -->
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 1: KIES JE STOEL
@@ -126,7 +126,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         <div class="form-tickets-container form-global-margin">
                             <div class="form-tickets-content">
                                 <p class="form-tickets-p global-secondary">
-                                        TYPE
+                                    TYPE
                                 </p>
                                 <p class="form-tickets-p global-secondary">
                                     PRIJS
@@ -140,9 +140,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
                             <div id="tickets-container">
                             </div>
-
-                                    <?php
-                                ?>
 
                             <div class="global-thinner-line global-background-secondary"></div>
 
@@ -175,8 +172,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
                                 <div>
                                     <p class="global-secondary">Bioscoop: AnnexBios-Maarsen</p>
-                                    <p class="global-secondary">Wanneer:
-                                        <?php echo htmlspecialchars($agenda_startdate); ?></p>
+                                    <p class="global-secondary">Wanneer: <span id="selected-date"><?php echo htmlspecialchars($agenda_startdate); ?></span></p>
+                                    <p class="global-secondary">Tijd: <span id="selected-time"></span></p>
                                     <p class="global-secondary">Stoelen: Rij 2, stoel 7</p>
                                     <p class="global-secondary">Tickets: 1x normaal</p>
                                     <br>
@@ -236,6 +233,35 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
         <?php include "assets/php/footer.php" ?>
     </div>
 
+    <script>
+        const agendaData = <?php echo json_encode($agenda_startdates); ?>;
+
+        document.getElementById('date-select').addEventListener('change', function() {
+            const selectedDate = this.value;
+            const timeSelect = document.getElementById('time-select');
+            const selectedDateSpan = document.getElementById('selected-date');
+            
+            selectedDateSpan.textContent = selectedDate;
+
+            timeSelect.innerHTML = '<option selected disabled hidden>TIJDSTIP</option>';
+            
+            if (agendaData[selectedDate]) {
+                agendaData[selectedDate].forEach(time => {
+                    const option = document.createElement('option');
+                    option.value = time;
+                    option.textContent = time;
+                    timeSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('time-select').addEventListener('change', function() {
+            const selectedTime = this.value;
+            const selectedTimeSpan = document.getElementById('selected-time');
+            
+            selectedTimeSpan.textContent = selectedTime;
+        });
+    </script>
 </body>
 
 </html>

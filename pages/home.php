@@ -29,7 +29,6 @@
 
     // var_dump($response);    
     ?>
-
     <div id="container">
         <?php include "assets/php/header.php" ?>
         <main>
@@ -45,6 +44,12 @@
                 <div id="about-box-2">
                     <div id="abt-box2-1">
                         <div id="abt-box2-text">
+
+                            <div id="abt-box-iframe">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1534.5760596423468!2d4.130799702159398!3d51.8360409131163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c451c6f4434d53%3A0x20bb4b6bcdd57904!2sRijksstraatweg%2042%2C%203223%20KA%20Hellevoetsluis!5e1!3m2!1snl!2snl!4v1726737603632!5m2!1snl!2snl"
+                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                 </div>
+                                <div id="textfr">
                             <div id="abt-box2-loc">
                                 <i class="material-icons" style="font-size:36px">place</i>
                                 <p>Rijksstraatweg 42 <br> 3223 KA Hellevoetsluis</p>
@@ -58,6 +63,7 @@
                                 rem vel ullam quidem ducimus accusamus. Vero facere, id dolores alias aut eaque ipsam
                                 provident quas quod obcaecati.</P>
                         </div>
+                    </div>
                     </div>
                     <div id="abt-box2-2">
                         <img id="cinema-img" src="assets/images/backgrounds/ugly-cinema.png" alt="bruh">

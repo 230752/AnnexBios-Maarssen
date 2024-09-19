@@ -1,15 +1,12 @@
 <div id="movie-box-container">
     <?php
-    $curl = curl_init();
-
-    curl_setopt($curl, CURLOPT_URL, "https://annexbios-server.onrender.com/api/movies");
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    $response = curl_exec($curl);
+    $fetchApiData = include("assets/modules/funcs/fetchApiData.php");
+    $response = $fetchApiData("movies");
 
     $returnedData = json_decode($response, true);
 
     foreach ($returnedData as $movie) {
+        
         ?>
         <div class="movie-box">
             <img class="movie-box-img" src="<?= $movie['banner_path'] ?>" alt="red">
@@ -23,6 +20,7 @@
                 <a class="movie-box-btn" href="film-pagina?id=<?= $movie['id'] ?>">MEER INFO & TICKETS</a>
             </div>
         </div>
-    <?php }
-    curl_close($curl); ?>
+        <?php
+    }
+    ?>
 </div>

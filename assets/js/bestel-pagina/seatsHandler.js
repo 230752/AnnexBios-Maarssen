@@ -45,7 +45,7 @@ function refreshTickets() {
                 <option value="2">65 +</option>
             </select>
 
-            <input type="hidden" id="value" name="tickets[]" value='{"seat": "${tbl.seat}", "ticketType": "0"}'>
+            <input type="hidden" id="value" name="tickets[]" value='{"seat": ${tbl.seat}, "ticketType": "0"}'>
         </div>`   
     }
 

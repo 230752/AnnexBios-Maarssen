@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
     $sql = "
-    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip
+    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip, ma.agenda_id
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
@@ -18,7 +18,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
     $stmt->execute();
 
-    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
+    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip, $agenda_id);
     $stmt->fetch();
 
     $stmt->close();
@@ -36,6 +36,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
     <title>AnnexBios Maarssen</title>
     <!-- SCRIPT LINKS -->
     <script src="assets/js/bestel-pagina/seatsHandler.js" defer></script>
+    <script src="assets/js/bestel-pagina/purchaseHandling.js" defer></script>
     <!-- CSS LINKS -->
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -73,7 +74,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
             </div>
 
 
-            <form class="form-container" action="" method="post">
+            <form class="form-container" action="bestel-vali" onsubmit="return onSubmit()" method="post">
                 <div class="form-selections">
                     <div class="form-selection">
                         <?php echo htmlspecialchars($movie);?>
@@ -83,15 +84,11 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                     -->
                     <select name="date" class="form-selection" required>
                         <option selected disabled hidden>DATUM</option>
-                        <option value="1"><?php echo htmlspecialchars($agenda_startdate); ?></option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($agenda_startdate); ?></option>
                     </select>
                     <select name="timeStamp" class="form-selection" required>
                         <option selected disabled hidden>TIJDSTIP</option>
-                        <option value="1"><?php echo htmlspecialchars($tijdstip); ?></option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($tijdstip); ?></option>
                     </select>
                 </div>
 
@@ -101,11 +98,11 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         function prettyDump($string)
                         {
                             echo "<pre>";
-                            var_dump($string);
+                            print_r($string);
                             echo "</pre>";
                         }
                         prettyDump($_POST)
-                            ?>
+                        ?>
                         <!-- STAP 1 -->
                         <h1 class="global-primary form-left-fix form-step">
                             STAP 1: KIES JE STOEL
@@ -126,7 +123,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         <div class="form-tickets-container form-global-margin">
                             <div class="form-tickets-content">
                                 <p class="form-tickets-p global-secondary">
-                                        TYPE
+                                    TYPE
                                 </p>
                                 <p class="form-tickets-p global-secondary">
                                     PRIJS
@@ -226,11 +223,13 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             </label>
                         </div>
 
-                        <input type="submit" value="AFREKENEN" onclick="" style="width:100%;" class="global-btn form-tickets-voucher-btn">
+                        <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn">
                     </div>
 
-                  <div class="form-split-right">
+                    <div class="form-split-right">
                     </div>
+
+                    <input type="hidden" name="id" value=<?= $_GET["id"] ?>>
             </form>
         </main>
         <?php include "assets/php/footer.php" ?>

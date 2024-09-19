@@ -4,7 +4,7 @@ include_once 'database/db_connect.php';
 $stripInjections = require_once('assets/modules/funcs/stripInjections.php');
 
 $apiUrl = "https://annexbios-server.onrender.com/api/";
-$MAX_ELAPSED_TIME = 20; // Seconds
+$MAX_ELAPSED_TIME = 600; // In seconds | 600 secs = 10 mins
 
 $whitelist = array("movies" => true);
 
@@ -67,17 +67,11 @@ return function ($apiName) {
         $stmt->fetch();
         $stmt->close();
 
-        // echo "Created";
-
         return $rawResponse;
     }
 
     // Timeout, gives sql data instead of api data
-    if ($elapsed < $MAX_ELAPSED_TIME) {
-        // echo "timeout";
-
-        return $json;
-    }
+    if ($elapsed < $MAX_ELAPSED_TIME) return $json;
 
 
     // Updating sql with api data
@@ -95,8 +89,6 @@ return function ($apiName) {
     $stmt->execute();
     $stmt->fetch();
     $stmt->close();
-
-    // echo "update";
     
     return $rawResponse;
 }

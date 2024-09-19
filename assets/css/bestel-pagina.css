@@ -1,16 +1,3 @@
-:root {
-  --primary-color: #9e2629;
-  --secondary-color: #666767;
-  --background-color: #ffffff;
-
-  --main-header-offset: 5vw;
-  --form-splitter-offset: 10px;
-  --form-preview-offset: 10px;
-
-  --big-font: 70px;
-  --medium-font: 20px;
-}
-
 #container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

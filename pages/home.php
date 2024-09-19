@@ -23,13 +23,6 @@
 </head>
 
 <body>
-    <?php 
-    // $fetchApiData = include("assets/modules/funcs/fetchApiData.php");
-    // $response = $fetchApiData("movies");
-
-    // var_dump($response);    
-    ?>
-
     <div id="container">
         <?php include "assets/php/header.php" ?>
         <main>

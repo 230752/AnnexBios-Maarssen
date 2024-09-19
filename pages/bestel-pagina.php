@@ -19,17 +19,11 @@ $tijdstippen = [];
 if ($movie_id && $stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $movie_id);
     $stmt->execute();
-<<<<<<< HEAD
-
-    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip, $agenda_id);
-    $stmt->fetch();
-=======
     $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
 
     while ($stmt->fetch()) {
         $agenda_startdates[$agenda_startdate][] = $tijdstip;
     }
->>>>>>> 6e7c5790c1a5c32fe6af1f54838567c61b86bfb1
 
     $stmt->close();
 }
@@ -80,12 +74,8 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                 <h1 class="main-header-title">TICKETS BESTELLEN</h1>
             </div>
 
-<<<<<<< HEAD
 
             <form class="form-container" action="bestel-vali" onsubmit="return onSubmit()" method="post">
-=======
-            <form class="form-container" action="" method="post">
->>>>>>> 6e7c5790c1a5c32fe6af1f54838567c61b86bfb1
                 <div class="form-selections">
                     <div class="form-selection">
                         <?php echo htmlspecialchars($movie); ?>
@@ -95,23 +85,17 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                     -->
                     <select name="date" class="form-selection" id="date-select" required>
                         <option selected disabled hidden>DATUM</option>
-<<<<<<< HEAD
                         <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($agenda_startdate); ?></option>
-=======
                         <?php
                         foreach (array_keys($agenda_startdates) as $date) {
                             echo '<option value="' . htmlspecialchars($date, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($date, ENT_QUOTES, 'UTF-8') . '</option>';
                         }
                         ?>
->>>>>>> 6e7c5790c1a5c32fe6af1f54838567c61b86bfb1
                     </select>
                     
                     <select name="timeStamp" class="form-selection" id="time-select" required>
                         <option selected disabled hidden>TIJDSTIP</option>
-<<<<<<< HEAD
                         <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($tijdstip); ?></option>
-=======
->>>>>>> 6e7c5790c1a5c32fe6af1f54838567c61b86bfb1
                     </select>
                 </div>
 
@@ -124,11 +108,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             print_r($string);
                             echo "</pre>";
                         }
-<<<<<<< HEAD
                         prettyDump($_POST)
-=======
-                        prettyDump($_POST);
->>>>>>> 6e7c5790c1a5c32fe6af1f54838567c61b86bfb1
                         ?>
                         <!-- STAP 1 -->
                         <h1 class="global-primary form-left-fix form-step">

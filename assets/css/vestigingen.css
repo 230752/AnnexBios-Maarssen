@@ -46,25 +46,10 @@ main {
 }
 
 #sub-branch1 {
-  background-color: #c07c44;
+  background-color: rgb(37, 37, 37);
   color: #fff;
   display: flex;
   justify-content: center;
-  width: 49%;
-}
-
-#sub-branch2 {
-  background-color: #909c54;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  width: 49%;
-}
-
-#sub-branch3 {
-  background-color: #704c7c;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  width: 49%;
+  max-width: 50%;
+  margin: 5%;
 }

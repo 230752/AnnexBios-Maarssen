@@ -26,17 +26,41 @@
         <main>
             <div id="branch-container">
                 <div id="main-branch">
-                    <h1>HOOFDKANTOOR ANNEXBIOS</h1>
+                    <!-- <h1>HOOFDKANTOOR ANNEXBIOS</h1> -->
                 </div>
                 <div id="sub-branch-container">
+
+                <div id="sub-branch1" >
+                        <img src="assets/images/logos/annex-hq.png" alt="">
+                    </div>
+
+                    <div id="sub-branch1" >
+                        <img src="assets/images/logos/annex-leerdam.png" alt="">
+                    </div>
+
                     <div id="sub-branch1">
-                        <h1>SUB-BRANCH</h1>
+                        <img src="assets/images/logos/annex-maarssen.png" alt="">
                     </div>
-                    <div id="sub-branch2">
-                        <h1>SUB-BRANCH</h1>
+
+                    <div id="sub-branch1">
+                        <img src="assets/images/logos/annex-breukelen.png" alt="">
                     </div>
-                    <div id="sub-branch3">
-                        <h1>SUB-BRANCH</h1>
+
+                    <div id="sub-branch1">
+                        <img src="assets/images/logos/annex-bilthoven.png" alt="">
+                    </div>
+
+                    <div id="sub-branch1">
+                        <img src="assets/images/logos/annex-montfoort.png" alt="">
+                    </div>
+
+                    <div id="sub-branch1">
+                        <img src="assets/images/logos/annex-woerden.png" alt="">
+                    </div>
+
+                    <div id="sub-branch1">
+                        <img src="assets/images/logos/annex-leidscherijn.png" alt="">
+                    </div>
                     </div>
                 </div>
             </div>

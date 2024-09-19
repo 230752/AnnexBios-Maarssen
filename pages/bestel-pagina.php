@@ -141,7 +141,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                                 </p>
                             </div>
 
-                            <div class="global-thinner-line global-background-secondary"></div>
+                            <div class="global-thinner-line global-back ground-secondary"></div>
 
                             <div id="tickets-container">
                             </div>

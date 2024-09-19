@@ -35,9 +35,9 @@
         <div id="volgons">
             <h2>VOLG ONS</h2>
             <div class="social-buttons">
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-instagram"></a>
+                <a href="https://www.facebook.com/annexcinema/" class="fa fa-facebook"></a>
+                <a href="https://x.com/letscinema" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/annexcinema/" class="fa fa-instagram"></a>
             </div>
         </div>
     </div>

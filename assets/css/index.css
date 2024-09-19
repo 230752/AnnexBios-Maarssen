@@ -24,7 +24,8 @@ main {
 
 /* INTRO */
 #intro {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #080404), url("../images/backgrounds/header_afbeelding.jpg");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #080404),
+    url("../images/backgrounds/header_afbeelding.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -83,7 +84,6 @@ main {
 }
 
 #abt-box2-1 {
-  background: url("../images/backgrounds/maps.png");
   background-size: cover;
   background-position: center;
   width: 60%;
@@ -95,9 +95,16 @@ main {
 #abt-box2-text {
   background-color: #9e2629;
   width: 100%;
-  height: 35%;
+  height: 100%;
+}
+
+#textfr {
   padding-left: 8px;
   padding-top: 15px;
+}
+
+#abt-box-iframe {
+  height: 300px;
 }
 
 #abt-box2-loc {

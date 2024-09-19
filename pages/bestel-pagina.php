@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
     $sql = "
-    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip, ma.agenda_id
+    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
@@ -26,7 +26,9 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
     }
 
     $stmt->close();
+
 }
+
 ?>
 
 
@@ -85,7 +87,6 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                     -->
                     <select name="date" class="form-selection" id="date-select" required>
                         <option selected disabled hidden>DATUM</option>
-                        <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($agenda_startdate); ?></option>
                         <?php
                         foreach (array_keys($agenda_startdates) as $date) {
                             echo '<option value="' . htmlspecialchars($date, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($date, ENT_QUOTES, 'UTF-8') . '</option>';

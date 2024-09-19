@@ -20,7 +20,7 @@ footer {
 
 main {
   padding-top: 5%;
-  padding-bottom: 50%;
+  padding-bottom: 5%;
   display: flex;
   justify-content: center;
 }
@@ -29,27 +29,55 @@ main {
   width: 80%;
 }
 
-#main-branch {
-  background-color: white;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2%;
-}
-
 #sub-branch-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  gap: 2%;
-  max-width: 100%;
+  gap: 20px;
 }
 
-#sub-branch1 {
-  background-color: white;
+#main-branch {
+  margin-bottom: 2%;
+  background-color: #fff;
+  color: #686464;
+  padding: 10px;
+  padding-bottom: 20px;
+  padding-left: 13px;
+}
+
+#main-branch-btn {
+  background-color: #686464;
   color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 10px 10px;
+}
+
+.branch {
+  width: 32.2%;
+  height: 400px;
   display: flex;
-  justify-content: center;
-  max-width: 50%;
-  margin: 5%;
+  flex-direction: column;
+  transition: ease-in-out 0.2s;
+}
+
+.branch:hover {
+  transform: translateY(-3px);
+}
+
+.branch-img {
+  height: 60%;
+}
+
+.branch-text {
+  background-color: #fff;
+  padding: 10px;
+  padding-left: 13px;
+  padding-bottom: 20px;
+}
+
+.branch-btn {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 10px 10px;
 }

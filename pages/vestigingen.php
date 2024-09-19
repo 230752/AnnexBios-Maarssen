@@ -26,41 +26,60 @@
         <main>
             <div id="branch-container">
                 <div id="main-branch">
-                    <!-- <h1>HOOFDKANTOOR ANNEXBIOS</h1> -->
+                    <div id="main-branch-text">
+                        <h3>HOOFDKANTOOR ANNEXBIOS</h3>
+                        <p>Rijksstraatweg 42, 3223 KA</p>
+                        <a id="main-branch-btn" href="#">BEZOEK WEBSITE</a>
+                    </div>
                 </div>
                 <div id="sub-branch-container">
-
-                <div id="sub-branch1" >
-                        <img src="assets/images/logos/annex-hq.png" alt="">
+                    <div class="branch">
+                        <img class="branch-img" src="assets/images/backgrounds/ugly-cinema.png" alt="cinemaimg">
+                        <div class="branch-text" style="color: #c07c44">
+                            <h3>ANNEXBIOS LEERDAM</h3>
+                            <p>Rijksstraatweg 42, 3223 KA</p>
+                            <a class="branch-btn" href="#" style="background-color: #c07c44">BEZOEK WEBSITE</a>
+                        </div>
                     </div>
-
-                    <div id="sub-branch1" >
-                        <img src="assets/images/logos/annex-leerdam.png" alt="">
+                    <div class="branch">
+                        <img class="branch-img" src="assets/images/backgrounds/ugly-cinema.png" alt="cinemaimg">
+                        <div class="branch-text" style="color: #909c54">
+                            <h3>ANNEXBIOS BREUKELEN</h3>
+                            <p>Rijksstraatweg 42, 3223 KA</p>
+                            <a class="branch-btn" href="#" style="background-color: #909c54">BEZOEK WEBSITE</a>
+                        </div>
                     </div>
-
-                    <div id="sub-branch1">
-                        <img src="assets/images/logos/annex-maarssen.png" alt="">
+                    <div class="branch">
+                        <img class="branch-img" src="assets/images/backgrounds/ugly-cinema.png" alt="cinemaimg">
+                        <div class="branch-text" style="color: #704c7c">
+                            <h3>ANNEXBIOS BILTHOVEN</h3>
+                            <p>Rijksstraatweg 42, 3223 KA</p>
+                            <a class="branch-btn" href="#" style="background-color: #704c7c">BEZOEK WEBSITE</a>
+                        </div>
                     </div>
-
-                    <div id="sub-branch1">
-                        <img src="assets/images/logos/annex-breukelen.png" alt="">
+                    <div class="branch">
+                        <img class="branch-img" src="assets/images/backgrounds/ugly-cinema.png" alt="cinemaimg">
+                        <div class="branch-text" style="color: #4894bc">
+                            <h3>ANNEXBIOS MONTFOORT</h3>
+                            <p>Rijksstraatweg 42, 3223 KA</p>
+                            <a class="branch-btn" href="#" style="background-color: #4894bc">BEZOEK WEBSITE</a>
+                        </div>
                     </div>
-
-                    <div id="sub-branch1">
-                        <img src="assets/images/logos/annex-bilthoven.png" alt="">
+                    <div class="branch">
+                        <img class="branch-img" src="assets/images/backgrounds/ugly-cinema.png" alt="cinemaimg">
+                        <div class="branch-text" style="color: #c07c44">
+                            <h3>ANNEXBIOS WOERDEN</h3>
+                            <p>Rijksstraatweg 42, 3223 KA</p>
+                            <a class="branch-btn" href="#" style="background-color: #c07c44">BEZOEK WEBSITE</a>
+                        </div>
                     </div>
-
-                    <div id="sub-branch1">
-                        <img src="assets/images/logos/annex-montfoort.png" alt="">
-                    </div>
-
-                    <div id="sub-branch1">
-                        <img src="assets/images/logos/annex-woerden.png" alt="">
-                    </div>
-
-                    <div id="sub-branch1">
-                        <img src="assets/images/logos/annex-leidscherijn.png" alt="">
-                    </div>
+                    <div class="branch">
+                        <img class="branch-img" src="assets/images/backgrounds/ugly-cinema.png" alt="cinemaimg">
+                        <div class="branch-text" style="color: #c07c44">
+                            <h3>ANNEXBIOS LEIDSCHERIJN</h3>
+                            <p>Rijksstraatweg 42, 3223 KA</p>
+                            <a class="branch-btn" href="#" style="background-color: #c07c44">BEZOEK WEBSITE</a>
+                        </div>
                     </div>
                 </div>
             </div>

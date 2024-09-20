@@ -1,0 +1,134 @@
+footer {
+  display: flex;
+  justify-content:space-between;
+  background-color: #666767;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  height: 320px;
+  z-index: 2;
+}
+
+#textfooter {
+  width: 320px;
+}
+
+#logo img{
+  width: 250px; 
+  margin-top: 45px;
+}
+
+#logo {
+  margin-left: 50px;
+  font-weight: normal;
+}
+
+#logo .line-break {
+  display: block;
+}
+
+#myBtn {
+  background-color: white;
+  color: #666767;
+  border: none;
+  padding: 10px 20px;
+}
+
+#more {display: none;}
+
+#navigate {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-top: 75px;
+}
+
+#navigate p {
+  font-weight: normal;
+  margin: 0; 
+  padding: 0; 
+  position: relative;
+  margin-top: 5px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa-facebook {
+  background: white;
+  color: #676667;
+}
+
+.fa-twitter {
+  background: white;
+  color: #676667;
+}
+
+.fa-instagram {
+  background: white;
+  color: #676667;
+}
+
+#volgons {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  margin-left: 70px;
+  margin-top: 75px;
+}
+
+#volgons h2 {
+  margin: 0; 
+  font-size: 1.5em; 
+  margin-top: 20px;
+}
+
+#volgons .social-buttons {
+  display: flex;
+  flex-direction: row; 
+  margin-top: 10px; 
+}
+
+#volgons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.5px; 
+  height: 0.5px;
+  line-height: 0.1px; 
+  border-radius: 50%;
+  text-align: center;
+  font-size: 17px;
+  text-decoration: none;
+  margin-right: 7px; 
+  margin-top: 22px;
+  
+}
+
+#logo2 {
+  height: 320px;
+  width: 320px;
+  position: absolute;
+  right: 0;
+}
+
+
+
+@media only screen and (max-device-width : 820px) {
+  .footer-container {
+    padding-bottom: 85px;
+    flex-direction: column;
+    height: auto;
+  }
+  #logo2 {
+    display: none;
+  }
+}

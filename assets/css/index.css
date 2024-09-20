@@ -1,0 +1,260 @@
+/* GRID SHIT */
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 150px 1fr 0fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 5;
+}
+main {
+  grid-area: 2 / 1 / 4 / 5;
+}
+footer {
+  grid-area: 4 / 1 / 5 / 5;
+}
+/* END GRID SHIT */
+
+main {
+  padding-bottom: 5%;
+}
+
+/* INTRO */
+#intro {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #080404),
+    url("../images/backgrounds/header_afbeelding.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15%;
+  padding-bottom: 7%;
+}
+
+#about-box {
+  background-color: #9e2629;
+  color: white;
+  width: 80%;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#welcome-txt {
+  width: 70%;
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Handle long words */
+  overflow-wrap: break-word; /* Handle long words */
+}
+
+#about-btn {
+  text-decoration: none;
+  background-color: white;
+  color: #9e2629;
+  padding: 10px;
+  max-width: 230px;
+}
+
+#about-box-2 {
+  background-color: white;
+  color: white;
+  font-size: 0.9rem;
+  width: 80%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 2%;
+}
+
+#about-box-2 p {
+  padding: 0;
+  margin: 0;
+}
+
+#abt-box2-1 {
+  background-size: cover;
+  background-position: center;
+  width: 60%;
+  height: 500px;
+  display: flex;
+  align-items: flex-end;
+}
+
+#abt-box2-text {
+  background-color: #9e2629;
+  width: 100%;
+  height: 100%;
+}
+
+#textfr {
+  padding-left: 8px;
+  padding-top: 15px;
+}
+
+#abt-box-iframe {
+  height: 300px;
+}
+
+#abt-box2-loc {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+#abt-box2-num {
+  display: flex;
+  align-items: center;
+  margin-left: -11px; /* PHONE ICON INVISIBLE SPACE LEFT */
+  max-height: 40px;
+}
+
+#abt-box2-2 {
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cinema-img {
+  width: 100%;
+  height: 500px;
+}
+/* END INTRO */
+
+/* FILM AGENDA */
+#movie-roster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#movie-roster {
+  padding-top: 10%;
+  width: 81.34%;
+}
+
+#movie-roster-title {
+  background-color: white;
+  color: #9e2629;
+  font-size: 1.8rem;
+  padding-left: 20px;
+  width: 41.8%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+#filter-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding-left: 20px;
+}
+
+.filter-checkbox-container {
+  background-color: white;
+  color: #9e2629;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
+  min-height: 30px;
+  max-height: 30px;
+  padding: 5px 5px;
+}
+
+.filter-checkbox {
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #9e2629;
+}
+
+.filter-checkbox:checked {
+  background-color: #9e2629;
+}
+
+#filter-selector {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #9e2629;
+  font-size: 1rem;
+  padding-right: 20px;
+}
+
+#movie-box-container {
+  padding-top: 2%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 7px;
+  max-width: 100%;
+}
+
+.movie-box {
+  width: 180px;
+  background-color: #fff;
+  color: #686464;
+  display: flex;
+  flex-direction: column;
+  transition: ease-in-out 0.2s;
+}
+
+.movie-box:hover {
+  transform: translateY(-3px);
+}
+
+.movie-box-img {
+  max-width: 100%;
+  height: 250px;
+}
+
+.movie-box-info {
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+}
+
+.movie-desc {
+  font-size: 0.8rem;
+  max-height: 4.7em; /* Adjust based on the number of lines you want to show */
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.movie-box-btn {
+  background-color: #9e2629;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 10px;
+}
+
+#more-movies-btn {
+  background-color: #9e2629;
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 8px 26px;
+}
+/* END FILM AGENDA */

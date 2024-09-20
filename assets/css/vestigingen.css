@@ -1,0 +1,83 @@
+/* GRID SHIT */
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 150px 1fr 0fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 5;
+}
+main {
+  grid-area: 2 / 1 / 4 / 5;
+}
+footer {
+  grid-area: 4 / 1 / 5 / 5;
+}
+/* END GRID SHIT */
+
+main {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+#branch-container {
+  width: 80%;
+}
+
+#sub-branch-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#main-branch {
+  margin-bottom: 2%;
+  background-color: #fff;
+  color: #686464;
+  padding: 10px;
+  padding-bottom: 20px;
+  padding-left: 13px;
+}
+
+#main-branch-btn {
+  background-color: #686464;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 10px 10px;
+}
+
+.branch {
+  width: 32.2%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: ease-in-out 0.2s;
+}
+
+.branch:hover {
+  transform: translateY(-3px);
+}
+
+.branch-img {
+  height: 60%;
+}
+
+.branch-text {
+  background-color: #fff;
+  padding: 10px;
+  padding-left: 13px;
+  padding-bottom: 20px;
+}
+
+.branch-btn {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 10px 10px;
+}

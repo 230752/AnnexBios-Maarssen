@@ -31,7 +31,6 @@
                             <h1>FILM AGENDA</h1>
                         </div>
                         <div id="filter-container">
-                            <p style="color: white">icon</p>
                             <div class="filter-checkbox-container">
                                 <input class="filter-checkbox" type="checkbox">
                                 <p>FILMS</p>

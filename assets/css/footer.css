@@ -9,6 +9,7 @@ footer {
   display: flex;
   height: 320px;
   z-index: 2;
+  padding-left: 14%;
 }
 
 #textfooter {

@@ -31,7 +31,6 @@
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         $response = curl_exec($curl);
-
         
         $returnedData = json_decode($response, true);
         foreach ($returnedData as $movie) {
@@ -42,7 +41,7 @@
         <main>
             <div id="movie-container">
                 <div id="movie-title-container">
-                    <h1><?= $movie['title'] ?></h1>
+                    <h1 style="padding-left: 20px"><?= $movie['title'] ?></h1>
                 </div>
                 <div id="movie-content-container">
                     <img src="<?= $movie['banner_path'] ?>" alt="">

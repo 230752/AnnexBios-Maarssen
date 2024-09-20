@@ -10,14 +10,26 @@ let tickets;
 const urlParams =  new URLSearchParams(window.location.search)
 const movieId = urlParams.get("id")
 
-function updateSeatButtons() {
-    const opacity = activeSeats ? "100%" : "50%"
-    for (let [_, element] of Object.entries(seatImgs)) {
-        element.style.opacity = opacity
-    }
+function updateSeatButtons() {    
+    seatsData = {}
 
-    for (let [_, element] of Object.entries(seatBtns)) {
-        // console.log(element.id)
+    if (activeSeats) {
+        for (let [_, element] of Object.entries(seatBtns)) {
+            const img = element.children[0]
+            if (tookenSeats[element.id]) {
+                element.disabled = true
+                
+                img.style.opacity = "50%"
+    
+                continue
+            }
+    
+            img.style.opacity = "100%"
+        }
+    } else {
+        for (let [_, element] of Object.entries(seatImgs)) {
+            element.style.opacity = "50%"
+        }    
     }
 }
 
@@ -38,9 +50,10 @@ async function checkSeatsTooken(element) {
     ) {
         activeSeats = false
         tookenSeats = {}
-        console.log("empty")
         return
     }
+
+    activeSeats = true
 
     const data = fetch("api/getSeats.php", {
         method: "POST",
@@ -60,8 +73,9 @@ async function checkSeatsTooken(element) {
             let seatsTooken = customerTbl.replace('["','[').replace('"]',']').replaceAll('","',',')
             seatsTooken = JSON.parse(seatsTooken)
 
-            for (let [_, seat] of seatsTooken) {
-                tookenSeats[] = {}
+            for (let [index, seat] of Object.entries(seatsTooken)) {
+                const seatString = JSON.stringify(seat.seat).replace(",", ", ")
+                tookenSeats[seatString] = true               
             }
         }
 

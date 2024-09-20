@@ -167,10 +167,10 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                                 </h1>
 
                                 <div>
-                                    <img src="<?= htmlspecialchars($actor_pictures_1, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
-                                    <img src="<?= htmlspecialchars($actor_pictures_2, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
-                                    <img src="<?= htmlspecialchars($actor_pictures_3, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
-                                    <img src="<?= htmlspecialchars($actor_pictures_4, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img style="width: 50px; height:40px;" src="<?= htmlspecialchars($actor_pictures_1, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img style="width: 50px; height:40px;" src="<?= htmlspecialchars($actor_pictures_2, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img style="width: 50px; height:40px;" src="<?= htmlspecialchars($actor_pictures_3, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img style="width: 50px; height:40px;" src="<?= htmlspecialchars($actor_pictures_4, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
                                 </div>
 
                                 <div>

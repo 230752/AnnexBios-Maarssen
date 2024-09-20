@@ -46,7 +46,7 @@
                 <div id="movie-content-container">
                     <img src="<?= $movie['banner_path'] ?>" alt="">
                     <div id="movie-info">
-                        <p id="movie-rating">Rating: <?= $movie['rating'] ?> stars</p>
+                        <p id="movie-rating">Rating: <?= $movie['rating'] ?></p>
                         <p>symbols</p>
                         <p style="font-size: 1.5rem">Release: <?= date('d-m-Y', strtotime($movie['release_date'])) ?>
                         </p>

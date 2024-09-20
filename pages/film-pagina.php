@@ -55,6 +55,7 @@
                 <div id="movie-content-container">
                     <img style="width:400px; height: 480px;" src="<?= htmlspecialchars($selectedMovie['banner_path'], ENT_QUOTES, 'UTF-8') ?>" alt="Movie Banner">
                     <div id="movie-info">
+<<<<<<< HEAD
                         <p id="movie-rating">Rating: <?= htmlspecialchars($selectedMovie['rating'], ENT_QUOTES, 'UTF-8') ?> stars</p>
                         <p>Release: <?= date('d-m-Y', strtotime($selectedMovie['release_date'])) ?></p>
                         <p id="movie-desc"><?= htmlspecialchars($selectedMovie['description'], ENT_QUOTES, 'UTF-8') ?></p>

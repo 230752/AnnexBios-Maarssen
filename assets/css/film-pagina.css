@@ -33,9 +33,8 @@ main {
 #movie-title-container {
   background-color: #fff;
   color: #9e2629;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 80%;
-  padding-left: 20px;
   margin-bottom: 3%;
 }
 
@@ -82,4 +81,9 @@ main {
   width: 80%;
   display: flex;
   justify-content: center;
+}
+
+#movie-trailer {
+  padding-top: 1%;
+  width: 80%;
 }

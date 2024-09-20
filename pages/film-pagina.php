@@ -67,6 +67,7 @@
                     </div>
                 </div>
                 <a id="buy-button" href="#">KOOP JE TICKETS</a>
+                <img id="movie-trailer" src="assets/images/misc/placeholder.png" alt="idk">
             </div>
         </main>
         <footer>

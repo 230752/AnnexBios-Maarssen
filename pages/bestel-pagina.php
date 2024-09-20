@@ -6,11 +6,11 @@ if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
     $sql = "
-    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip, m.actor_pictures_1, m.actor_pictures_2, m.actor_pictures_3, m.actor_pictures_4
+    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip, m.actor_pictures_1, m.actor_pictures_2, m.actor_pictures_3, m.actor_pictures_4, m.description
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
-    ";
+";
 }
 
 $agenda_startdates = [];
@@ -18,7 +18,7 @@ $agenda_startdates = [];
 if ($movie_id && $stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $movie_id);
     $stmt->execute();
-    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip, $actor_pictures_1, $actor_pictures_2, $actor_pictures_3, $actor_pictures_4);
+    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip, $actor_pictures_1, $actor_pictures_2, $actor_pictures_3, $actor_pictures_4, $description);
 
     while ($stmt->fetch()) {
         $agenda_startdates[$agenda_startdate][] = $tijdstip;
@@ -26,6 +26,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
     $stmt->close();
 }
+
 ?>
 
 
@@ -211,27 +212,73 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                             STAP 5: KIES JE BETAALWIJZE
                         </h1>
 
+                        <form id="payment-form">
+                            <div class="payment-options-container">
+                                <div class="payment-option">
+                                    <div class="checkbox-wrapper-62">
+                                        <input type="radio" name="payment-method" class="check" id="check1-62" value="bioscoopbon" />
+                                        <label for="check1-62" class="label">
+                                            <svg width="43" height="43" viewbox="0 0 90 90">
+                                                <rect x="30" y="20" width="50" height="50" stroke="black" fill="none" />
+                                                <g transform="translate(0,-952.36218)">
+                                                    <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                                    <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                                </g>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="payment-logos">
+                                        <img src="assets/images/logos/bioscoopbon.png" alt="bioscoopbon" class="form-preview-sub-img">
+                                    </div>
+                                </div>
 
-                        <div class="checkbox-wrapper-62">
-                            <input type="checkbox" class="check" id="check1-62" />
-                            <label for="check1-62" class="label">
-                                <svg width="43" height="43" viewbox="0 0 90 90">
-                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none" />
-                                    <g transform="translate(0,-952.36218)">
-                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" stroke-width="3" class="path1" fill="none" />
-                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" stroke-width="3" class="path1" fill="none" />
-                                    </g>
-                                </svg>
-                                <span>Checkbox</span>
-                            </label>
-                        </div>
+                                <div class="payment-option">
+                                    <div class="checkbox-wrapper-62">
+                                        <input type="radio" name="payment-method" class="check" id="check2-62" value="maestro" />
+                                        <label for="check2-62" class="label">
+                                            <svg width="43" height="43" viewbox="0 0 90 90">
+                                                <rect x="30" y="20" width="50" height="50" stroke="black" fill="none" />
+                                                <g transform="translate(0,-952.36218)">
+                                                    <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                                    <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                                </g>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="payment-logos">
+                                        <img src="assets/images/logos/maestro.png" alt="Maestro" class="form-preview-sub-img">
+                                    </div>
+                                </div>
 
-                        <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn">
+                                <div class="payment-option">
+                                    <div class="checkbox-wrapper-62">
+                                        <input type="radio" name="payment-method" class="check" id="check3-62" value="ideal" />
+                                        <label for="check3-62" class="label">
+                                            <svg width="43" height="43" viewbox="0 0 90 90">
+                                                <rect x="30" y="20" width="50" height="50" stroke="black" fill="none" />
+                                                <g transform="translate(0,-952.36218)">
+                                                    <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                                    <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" stroke-width="3" class="path1" fill="none" />
+                                                </g>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="payment-logos">
+                                        <img src="assets/images/logos/ideal.png" alt="iDEAL" class="form-preview-sub-img">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="submit" value="AFREKENEN" style="width:100%;" class="global-btn form-tickets-voucher-btn">
                     </div>
 
                     <div class="form-split-right">
+                        <img style="width:150px; height: 200px; margin-left:20px; margin-top:20px; justify-content: center" src="<?php echo htmlspecialchars($movie_image); ?>" alt="" class="form-preview-img">
+                        <p style="font-size: 20px; color: #666;">
+                            <?php echo htmlspecialchars(substr($description, 0, 100)); ?>
+                            <?php if (strlen($description) > 150) echo '...'; ?>
+                        </p>
                     </div>
-
                     <input type="hidden" name="id" value=<?= $_GET["id"] ?>>
             </form>
         </main>
@@ -265,6 +312,15 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
             const selectedTimeSpan = document.getElementById('selected-time');
 
             selectedTimeSpan.textContent = selectedTime;
+        });
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked');
+
+            if (!selectedPaymentMethod) {
+                alert('Please select a payment method before proceeding.');
+                event.preventDefault();
+                return false;
+            }
         });
     </script>
 </body>

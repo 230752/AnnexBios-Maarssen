@@ -22,51 +22,58 @@
 
 <body>
     <div id="container">
-        <?php include "assets/php/header.php";
-        $movieId = $_GET['id'];
-
+        <?php include "assets/php/header.php"; 
+        
+        $movieId = isset($_GET['id']) ? $_GET['id'] : null;
+        
         $curl = curl_init();
-
         curl_setopt($curl, CURLOPT_URL, "https://annexbios-server.onrender.com/api/movies");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
         $response = curl_exec($curl);
-        
-        $returnedData = json_decode($response, true);
-        foreach ($returnedData as $movie) {
-            $movie['id'] = $movieId;
-        }
         curl_close($curl);
+
+        $movies = json_decode($response, true);
+        
+        $selectedMovie = null;
+        foreach ($movies as $movie) {
+            if ($movie['id'] == $movieId) {
+                $selectedMovie = $movie;
+                break;
+            }
+        }
+
+        if (!$selectedMovie) {
+            echo "<main><h1>Film niet gevonden.</h1></main>";
+            exit();
+        }
         ?>
         <main>
             <div id="movie-container">
                 <div id="movie-title-container">
-                    <h1 style="padding-left: 20px"><?= $movie['title'] ?></h1>
+                    <h1 style="padding-left: 20px"><?= htmlspecialchars($selectedMovie['title'], ENT_QUOTES, 'UTF-8') ?></h1>
                 </div>
                 <div id="movie-content-container">
-                    <img src="<?= $movie['banner_path'] ?>" alt="">
+                    <img style="width:400px; height: 480px;" src="<?= htmlspecialchars($selectedMovie['banner_path'], ENT_QUOTES, 'UTF-8') ?>" alt="Movie Banner">
                     <div id="movie-info">
-                        <p id="movie-rating">Rating: <?= $movie['rating'] ?> stars</p>
-                        <p>symbols</p>
-                        <p style="font-size: 1.5rem">Release: <?= date('d-m-Y', strtotime($movie['release_date'])) ?>
-                        </p>
-                        <p id="movie-desc"><?= $movie['description'] ?></p>
-                        <p>Filmlengte: <?= $movie['duration'] ?></p>
-                        <p>Acteurs: </p>
+                        <p id="movie-rating">Rating: <?= htmlspecialchars($selectedMovie['rating'], ENT_QUOTES, 'UTF-8') ?> stars</p>
+                        <p>Release: <?= date('d-m-Y', strtotime($selectedMovie['release_date'])) ?></p>
+                        <p id="movie-desc"><?= htmlspecialchars($selectedMovie['description'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <p>Filmlengte: <?= htmlspecialchars($selectedMovie['duration'], ENT_QUOTES, 'UTF-8') ?> minuten</p>
+                        <p>Acteurs:</p>
                         <div id="movie-actors-container">
                             <?php
-                            $limitedActors = array_slice($movie['actors'], 0, 3);
+                            $limitedActors = array_slice($selectedMovie['actors'], 0, 3);
                             foreach ($limitedActors as $actor) { ?>
                                 <div class="movie-actor">
-                                    <img class="actor-img" src="<?= $actor['image_path'] ?>" alt="niet beschikbaar">
-                                    <p><?=$actor['firstname'] . ' ' . $actor['lastname']?></p>
+                                    <img class="actor-img" src="<?= htmlspecialchars($actor['image_path'], ENT_QUOTES, 'UTF-8') ?>" alt="Actor Image">
+                                    <p><?= htmlspecialchars($actor['firstname'] . ' ' . $actor['lastname'], ENT_QUOTES, 'UTF-8') ?></p>
                                 </div>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
-                <a id="buy-button" href="#">KOOP JE TICKETS</a>
-                <img id="movie-trailer" src="assets/images/misc/placeholder.png" alt="idk">
+                <a id="buy-button" href="bestel-pagina?id=<?= htmlspecialchars($selectedMovie['id'], ENT_QUOTES, 'UTF-8') ?>">KOOP JE TICKETS</a>
+                <img id="movie-trailer" src="assets/images/misc/placeholder.png" alt="Movie Trailer Placeholder">
             </div>
         </main>
         <footer>

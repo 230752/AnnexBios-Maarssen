@@ -24,27 +24,62 @@ main {
 }
 
 #movie-container {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #movie-title-container {
-  background-color: white;
-}
-
-#movie-title-container h1 {
+  background-color: #fff;
   color: #9e2629;
+  font-size: 2rem;
+  width: 80%;
+  padding-left: 20px;
+  margin-bottom: 3%;
 }
 
-#movie-box-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 15px;
+#movie-content-container {
+  display: flex;
+  width: 80%;
+  gap: 20px;
 }
 
-#movie-info-box {
-    background-color: white;
+#movie-info {
+  background-color: #fff;
+  color: #686464;
+  padding-left: 20px;
+}
+
+#movie-rating {
+  color: #9e2629;
+  font-size: 2rem;
+}
+
+#movie-actors-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-actor {
+  display: flex;
+  flex-direction: column;
+}
+
+.actor-img {
+  width: 220px;
+  height: 160px;
+}
+
+#buy-button {
+  margin-top: 1%;
+  background-color: #9e2629;
+  color: #fff;
+  text-decoration: none;
+  font-size: 3rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }

@@ -22,20 +22,51 @@
 
 <body>
     <div id="container">
-        <?php include "assets/php/header.php" ?>
+        <?php include "assets/php/header.php";
+        $movieId = $_GET['id'];
+
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, "https://annexbios-server.onrender.com/api/movies");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($curl);
+
+        
+        $returnedData = json_decode($response, true);
+        foreach ($returnedData as $movie) {
+            $movie['id'] = $movieId;
+        }
+        curl_close($curl);
+        ?>
         <main>
             <div id="movie-container">
                 <div id="movie-title-container">
-                    <h1>JURASSIC WORLD: FALLEN KINGDOM</h1> <!-- echo hier de movie titel -->
+                    <h1><?= $movie['title'] ?></h1>
                 </div>
-                <div id="movie-box-container">
-                    <div id="movie-img-box">
-                        <img id="movie-img" src="assets/images/misc/placeholder.png" alt=""> <!-- echo hier de movie image -->
-                    </div>
-                    <div id="movie-info-box">
-                        <h1>testing</h1>
+                <div id="movie-content-container">
+                    <img src="<?= $movie['banner_path'] ?>" alt="">
+                    <div id="movie-info">
+                        <p id="movie-rating">Rating: <?= $movie['rating'] ?> stars</p>
+                        <p>symbols</p>
+                        <p style="font-size: 1.5rem">Release: <?= date('d-m-Y', strtotime($movie['release_date'])) ?>
+                        </p>
+                        <p id="movie-desc"><?= $movie['description'] ?></p>
+                        <p>Filmlengte: <?= $movie['duration'] ?></p>
+                        <p>Acteurs: </p>
+                        <div id="movie-actors-container">
+                            <?php
+                            $limitedActors = array_slice($movie['actors'], 0, 3);
+                            foreach ($limitedActors as $actor) { ?>
+                                <div class="movie-actor">
+                                    <img class="actor-img" src="<?= $actor['image_path'] ?>" alt="niet beschikbaar">
+                                    <p><?=$actor['firstname'] . ' ' . $actor['lastname']?></p>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
+                <a id="buy-button" href="#">KOOP JE TICKETS</a>
             </div>
         </main>
         <footer>

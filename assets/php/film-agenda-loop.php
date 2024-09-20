@@ -17,7 +17,7 @@
                     <?= date('d-m-Y', strtotime($movie['release_date'])) ?>
                 </p>
                 <p class="movie-desc"><?= $movie['description'] ?></p>
-                <a class="movie-box-btn" href="bestel-pagina?id=<?= $movie['id'] ?>">MEER INFO & TICKETS</a>
+                <a class="movie-box-btn" href="film-pagina?id=<?= $movie['id'] ?>">MEER INFO & TICKETS</a>
             </div>
         </div>
         <?php

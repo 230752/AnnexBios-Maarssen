@@ -16,27 +16,63 @@
         >
     </head>
     <body>
-        <?php include_once "assets/php/header.php" ?>
+        <?php
+        include_once "assets/php/header.php";
+        include_once "database/db_connect.php";
+        ?>
 
         <?php
-        $post = $_POST;
-        
-        $sql = "
-        INSERT INTO `purchases` (`movie_id`, `purchase_date`, `purchase_timestamp`, `purchase_seats`, `purchase_name`, `purchase_last_name`, `purchase_email`)
-        VALUES ('', '', '', '', '', '', '')
+        $needed = ["id", "date", "timeStamp"];
+        $msg = "Bestelling voltooid!";
+        $cancel = false;
 
-        ";
+        if (
+            !isset($_POST)
+            || !isset($_POST["id"])
+            || !isset($_POST["date"])
+            || !isset($_POST["timeStamp"])
+            || !isset($_POST["tickets"])
+            || !isset($_POST["lastName"])
+            || !isset($_POST["email"])
+        ) {
+            $msg = "Er is iets mis gegaan, probeer opniew.";
+            $cance = true;
+        }
+
+        // Put payment checks here
+
+        // // // // // // // // //
+
+        if (!$cancel) {
+            $post = $_POST;
+            $tickets = json_encode($post["tickets"], JSON_UNESCAPED_SLASHES);
+
+            $valiSql = $stripInjections("
+            INSERT INTO `purchases` (`movie_id`, `purchase_date`, `purchase_timestamp`, `purchase_seats`, `purchase_name`, `purchase_last_name`, `purchase_email`)
+            VALUES ('{$post["id"]}', '{$post["date"]}', '{$post["timeStamp"]}', '{}', '{$post["firstName"]}', '{$post["lastName"]}', '{$post["email"]}')
+            ");  
+            
+            $stmt = $conn->prepare($valiSql);
+            $stmt->execute();
+            $stmt->fetch();
+            $stmt->close();
+
+            print_r($conn);
+        }
         ?>
 
         <main>
             <div class="main-container">
                 <div class="main-header main-content">
-                    <h1 class="main-h1">Bestelling voltoit!</h1>
+                    <h1 class="main-h1"><?=$msg?></h1>
+
+                    <?php if ($cancel) { exit(); }?>
 
                                 
                     <?php
+                    print_r($sql);
 
-                    print_r($post);
+                    // print_r($post);
                     ?>
                 </div>
 

@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
     $sql = "
-    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip
+    SELECT m.movie, m.release_date, m.movie_image, ma.agenda_startdate, ma.tijdstip, m.actor_pictures_1, m.actor_pictures_2, m.actor_pictures_3, m.actor_pictures_4
     FROM movies m
     JOIN movieagenda ma ON m.id = ma.movie_id
     WHERE m.id = ?
@@ -14,21 +14,18 @@ if (isset($_GET['id'])) {
 }
 
 $agenda_startdates = [];
-$tijdstippen = [];
 
 if ($movie_id && $stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $movie_id);
     $stmt->execute();
-    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip);
+    $stmt->bind_result($movie, $release_date, $movie_image, $agenda_startdate, $tijdstip, $actor_pictures_1, $actor_pictures_2, $actor_pictures_3, $actor_pictures_4);
 
     while ($stmt->fetch()) {
         $agenda_startdates[$agenda_startdate][] = $tijdstip;
     }
 
     $stmt->close();
-
 }
-
 ?>
 
 
@@ -60,13 +57,13 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
 
         <?php
         if (!$movie_id) {
-            ?>
+        ?>
             <main style="border:none;">
                 <div class="main-header-container">
                     <h1 class="main-header-title">Deze film bestaat niet.</h1>
                 </div>
             </main>
-            <?php
+        <?php
             exit();
         }
         ?>
@@ -93,7 +90,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         }
                         ?>
                     </select>
-                    
+
                     <select name="timeStamp" class="form-selection" id="time-select" required>
                         <option selected disabled hidden>TIJDSTIP</option>
                         <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($tijdstip); ?></option>
@@ -170,9 +167,10 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                                 </h1>
 
                                 <div>
-                                    <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
-                                    <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
-                                    <img src="assets/images/misc/placeholder.png" alt="" class="form-preview-sub-img">
+                                    <img src="<?= htmlspecialchars($actor_pictures_1, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img src="<?= htmlspecialchars($actor_pictures_2, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img src="<?= htmlspecialchars($actor_pictures_3, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
+                                    <img src="<?= htmlspecialchars($actor_pictures_4, ENT_QUOTES, 'UTF-8') ?>" alt="Actor" class="form-preview-sub-img">
                                 </div>
 
                                 <div>
@@ -247,11 +245,11 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
             const selectedDate = this.value;
             const timeSelect = document.getElementById('time-select');
             const selectedDateSpan = document.getElementById('selected-date');
-            
+
             selectedDateSpan.textContent = selectedDate;
 
             timeSelect.innerHTML = '<option selected disabled hidden>TIJDSTIP</option>';
-            
+
             if (agendaData[selectedDate]) {
                 agendaData[selectedDate].forEach(time => {
                     const option = document.createElement('option');
@@ -265,7 +263,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
         document.getElementById('time-select').addEventListener('change', function() {
             const selectedTime = this.value;
             const selectedTimeSpan = document.getElementById('selected-time');
-            
+
             selectedTimeSpan.textContent = selectedTime;
         });
     </script>

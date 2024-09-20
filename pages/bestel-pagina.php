@@ -85,7 +85,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                     <!-- 
                         Check if date and timeStamp exist in $_POST, if it doesn't it means they didn't fill it!!
                     -->
-                    <select name="date" class="form-selection" id="date-select" required>
+                    <select name="date" class="form-selection" id="date-select" onchange="checkSeatsTooken()" required>
                         <option selected disabled hidden>DATUM</option>
                         <?php
                         foreach (array_keys($agenda_startdates) as $date) {
@@ -94,7 +94,7 @@ if ($movie_id && $stmt = $conn->prepare($sql)) {
                         ?>
                     </select>
                     
-                    <select name="timeStamp" class="form-selection" id="time-select" required>
+                    <select name="timeStamp" class="form-selection" id="time-select" onchange="checkSeatsTooken()" required>
                         <option selected disabled hidden>TIJDSTIP</option>
                         <option value="<?= $agenda_id ?>"><?php echo htmlspecialchars($tijdstip); ?></option>
                     </select>

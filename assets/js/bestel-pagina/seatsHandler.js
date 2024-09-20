@@ -1,7 +1,75 @@
 let ticketContainer = document.getElementById("tickets-container")
+let seatBtns = document.getElementsByClassName("seat-btn")
+let seatImgs = document.getElementsByClassName("seat-img")
 
 let seatsData = {}
+let tookenSeats = {}
+let activeSeats = false
 let tickets;
+
+const urlParams =  new URLSearchParams(window.location.search)
+const movieId = urlParams.get("id")
+
+function updateSeatButtons() {
+    const opacity = activeSeats ? "100%" : "50%"
+    for (let [_, element] of Object.entries(seatImgs)) {
+        element.style.opacity = opacity
+    }
+
+    for (let [_, element] of Object.entries(seatBtns)) {
+        // console.log(element.id)
+    }
+}
+
+updateSeatButtons()
+
+async function checkSeatsTooken(element) {
+    setTimeout(async function() {
+    
+    const timeSelectElement = document.getElementById("time-select")
+    const dateSelectElement = document.getElementById("date-select")
+
+    const timeSelectText = timeSelectElement.options[timeSelectElement.selectedIndex].text
+    const dateSelectText = dateSelectElement.options[dateSelectElement.selectedIndex].text
+
+    if (
+        timeSelectText == "TIJDSTIP"
+        || dateSelectText == "DATUM"
+    ) {
+        activeSeats = false
+        tookenSeats = {}
+        console.log("empty")
+        return
+    }
+
+    const data = fetch("api/getSeats.php", {
+        method: "POST",
+        body: JSON.stringify({
+            ["movieId"]: movieId,
+            ["purchaseDate"]: dateSelectText,
+            ["purchaseTimeStamp"]: timeSelectText,
+        }),
+    })
+
+    const promise = (await data).json()
+
+    promise.then((response) => {
+        const customersTooken = response.seats
+
+        for (let [_, customerTbl] of Object.entries(customersTooken)) {
+            let seatsTooken = customerTbl.replace('["','[').replace('"]',']').replaceAll('","',',')
+            seatsTooken = JSON.parse(seatsTooken)
+
+            for (let [_, seat] of seatsTooken) {
+                tookenSeats[] = {}
+            }
+        }
+
+        updateSeatButtons()
+    })
+
+    }, 5);
+}
 
 async function checkCoupon(element) {
     const parent = element.parentElement

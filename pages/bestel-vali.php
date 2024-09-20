@@ -73,14 +73,13 @@
 
         if (!$cancel) {
             $post = $_POST;
-            $tickets = json_encode($post["tickets"], true);
+            echo $post["tickets"];
+            $tickets = json_encode($post["tickets"], JSON_NUMERIC_CHECK);
 
-            $valiSql = $stripInjections("
+            $valiSql = "
             INSERT INTO `purchases` (`movie_id`, `purchase_date`, `purchase_timestamp`, `purchase_seats`, `purchase_name`, `purchase_last_name`, `purchase_email`)
             VALUES ('{$post["id"]}', '{$post["date"]}', '{$post["timeStamp"]}', '{$tickets}', '{$post["firstName"]}', '{$post["lastName"]}', '{$post["email"]}')
-            ");  
-
-            echo $valiSql;
+            ";  
             
             $stmt = $conn->prepare($valiSql);
             $stmt->execute();

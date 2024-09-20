@@ -6,7 +6,7 @@
     $returnedData = json_decode($response, true);
 
     foreach ($returnedData as $movie) {
-        
+
         ?>
         <div class="movie-box">
             <img class="movie-box-img" src="<?= $movie['banner_path'] ?>" alt="red">

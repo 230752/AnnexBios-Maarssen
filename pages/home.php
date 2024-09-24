@@ -187,7 +187,7 @@ if ($movies) {
                         </div>
                     </div>
                     <?php include "assets/php/film-agenda-loop.php"; ?>
-                    <a id="more-movies-btn" href="">BEKIJK ALLE FILMS</a>
+                    <a id="more-movies-btn" href="film-agenda">BEKIJK ALLE FILMS</a>
                 </div>
             </div>
         </main>

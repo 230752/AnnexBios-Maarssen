@@ -55,21 +55,12 @@
                 <div id="movie-content-container">
                     <img style="width:400px; height: 480px;" src="<?= htmlspecialchars($selectedMovie['banner_path'], ENT_QUOTES, 'UTF-8') ?>" alt="Movie Banner">
                     <div id="movie-info">
-<<<<<<< HEAD
-                        <p id="movie-rating">Rating: <?= htmlspecialchars($selectedMovie['rating'], ENT_QUOTES, 'UTF-8') ?> stars</p>
-                        <p>Release: <?= date('d-m-Y', strtotime($selectedMovie['release_date'])) ?></p>
-                        <p id="movie-desc"><?= htmlspecialchars($selectedMovie['description'], ENT_QUOTES, 'UTF-8') ?></p>
-                        <p>Filmlengte: <?= htmlspecialchars($selectedMovie['duration'], ENT_QUOTES, 'UTF-8') ?> minuten</p>
-                        <p>Acteurs:</p>
-=======
                         <p id="movie-rating">Rating: <?= $movie['rating'] ?></p>
-                        <p>symbols</p>
                         <p style="font-size: 1.5rem">Release: <?= date('d-m-Y', strtotime($movie['release_date'])) ?>
                         </p>
                         <p id="movie-desc"><?= $movie['description'] ?></p>
                         <p>Filmlengte: <?= $movie['duration'] ?></p>
                         <p>Acteurs: </p>
->>>>>>> ddb1b82051a24517928ab9d3ee294355235ce898
                         <div id="movie-actors-container">
                             <?php
                             $limitedActors = array_slice($selectedMovie['actors'], 0, 3);
